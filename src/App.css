@@ -37,10 +37,14 @@ header h1 {
   float: left;
 }
 
+.movie-cards {
+  max-width: 80%;
+}
+
 .movie-cart {
   float: right;
-  height: 100rem;
 }
+
 .movie-cart .card-body {
   color: black;
   min-height: 220px;
