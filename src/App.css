@@ -61,6 +61,10 @@ header h1 {
 }
 
 #movie-cards {
+  height: 300px;
+}
+
+#movie-cards img {
   height: 200px;
 }
 
