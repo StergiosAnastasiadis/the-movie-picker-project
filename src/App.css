@@ -26,3 +26,21 @@ header h1 {
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
 }
+
+.card {
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: 10px;
+  width: 240px;
+  margin: 16px;
+  float: left;
+}
+
+.card h1 {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: rgb(7, 7, 7);
+}
