@@ -38,11 +38,13 @@ header h1 {
 }
 
 .movie-cards {
-  max-width: 80%;
+  max-width: 75%;
 }
 
 .movie-cart {
-  float: right;
+  position: fixed;
+  top: 145px;
+  right: 15px;
 }
 
 .movie-cart .card-body {
