@@ -37,10 +37,42 @@ header h1 {
   float: left;
 }
 
+.movie-cart {
+  float: right;
+  height: 100rem;
+}
+.movie-cart .card-body {
+  color: black;
+  min-height: 220px;
+}
+
+.movie-inside-cart {
+  padding: 3px 0;
+}
+
+.remove-cart-item {
+  float: right;
+}
+
+#movie-cards {
+  height: 200px;
+}
+
+#movie-cards h1 {
+  position: absolute;
+  bottom: 10px;
+}
+
+.add-movie-button {
+  text-align: right;
+}
+
 .card h1 {
-  font-size: 1.1em;
+  font-size: 0.9em;
   margin-bottom: 10px;
   white-space: pre-wrap;
   word-wrap: break-word;
   color: rgb(7, 7, 7);
+  text-align: center;
+  bottom: 0;
 }

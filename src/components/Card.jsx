@@ -1,10 +1,12 @@
 import React from "react";
 
 const Card = (props) => {
+
     return (
-        <div className="card">
-            <h1>{props.title}</h1>
+        <div className="card" id="movie-cards">
+            <a className="add-movie-button" href="#">Add</a>
             <img alt="movie-poster"></img>
+            <h1>{props.title} </h1>
         </div>
     )
 }
