@@ -1,10 +1,22 @@
-import InputField from "./components/InputField";
+import Header from "./components/Header";
+import Input from "./components/Input";
+import Card from "./components/Card";
 import "./App.css";
+
+const createCards = (cardItem) => {
+  return (
+    <Card
+      key={cardItem.id}
+      title={cardItem.title}
+    />
+  );
+}
 
 function App() {
   return (
     <div className="App">
-      <InputField />
+      <Header />
+      <Input />
     </div>
   );
 }
