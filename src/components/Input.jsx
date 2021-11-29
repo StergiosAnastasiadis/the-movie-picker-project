@@ -1,7 +1,7 @@
 // HINTS
 // jsx doesnt expect class attribute  | DONE
 // you can add the form submition only in <form></form> tag
-// check if you can search movie while user typing in search bar
+// check if you can search movie while user typing in search bar | DONE console.log items while user is typing
 
 import React, { useState } from "react";
 import axios from "axios";
@@ -14,26 +14,27 @@ const Input = () => {
 
   const handleUserInput = (event) => {
     setUserInput(event.target.value);
+    getData();
   }
 
   const logItems = (cardItem) => {
     console.log(cardItem.title, cardItem.id);
   }
 
-  const getData = (event) => {
+  const getData = () => {
 
     axios.get(url).then((response) => {
       const data = response.data.results;
 
       data.map(logItems);
 
-      setUserInput("");
+      // setUserInput("");
     })
       .catch((error) => {
         console.log(error);
       });
 
-    event.preventDefault();
+    // event.preventDefault();
   }
 
   return (
