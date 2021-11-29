@@ -1,3 +1,8 @@
+// HINTS
+// jsx doesnt expect class attribute
+// you can add the form submition only in <form></form> tag
+// check if you can search movie while user typing in search bar
+
 import React, { useState } from "react";
 import axios from "axios";
 

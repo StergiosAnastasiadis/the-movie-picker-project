@@ -2,72 +2,72 @@ const cards = [
     {
         key: 1,
         title: "Schindler's List",
-        content: ""
+        src: "https://image.tmdb.org/t/p/w500/5VTN0pR8gcqV3EPUHHfMGnJYN9L.jpg"
     },
     {
         key: 2,
         title: "The Lord Of The Rings: The Return Of The King",
-        content: ""
+        src: "https://image.tmdb.org/t/p/w500/5VTN0pR8gcqV3EPUHHfMGnJYN9L.jpg"
     },
     {
         key: 3,
         title: "Pulp Fiction",
-        content: ""
+        src: "https://image.tmdb.org/t/p/w500/5VTN0pR8gcqV3EPUHHfMGnJYN9L.jpg"
     },
     {
         key: 4,
         title: "The Good, The Bad And The Ugly",
-        content: ""
+        src: "https://image.tmdb.org/t/p/w500/5VTN0pR8gcqV3EPUHHfMGnJYN9L.jpg"
     },
     {
         key: 5,
         title: "The Lord Of The Rings: The Fellowship Of The Ring",
-        content: ""
+        src: "https://image.tmdb.org/t/p/w500/5VTN0pR8gcqV3EPUHHfMGnJYN9L.jpg"
     },
     {
         key: 6,
         title: "Fight Club",
-        content: ""
+        src: "https://image.tmdb.org/t/p/w500/5VTN0pR8gcqV3EPUHHfMGnJYN9L.jpg"
     },
     {
         key: 7,
         title: "Forrest Gump",
-        content: ""
+        src: "https://image.tmdb.org/t/p/w500/5VTN0pR8gcqV3EPUHHfMGnJYN9L.jpg"
     },
     {
         key: 8,
         title: "Inception ",
-        content: ""
+        src: "https://image.tmdb.org/t/p/w500/5VTN0pR8gcqV3EPUHHfMGnJYN9L.jpg"
     },
     {
         key: 9,
         title: "Star Wars: Episode V - The Empire Strikes Back",
-        content: ""
+        src: "https://image.tmdb.org/t/p/w500/5VTN0pR8gcqV3EPUHHfMGnJYN9L.jpg"
     },
     {
         key: 10,
         title: "The Lord Of The Rings: The Two Towers",
-        content: ""
+        src: "https://image.tmdb.org/t/p/w500/5VTN0pR8gcqV3EPUHHfMGnJYN9L.jpg"
     }, {
         key: 11,
         title: "Angry Men",
-        content: ""
+        src: "https://image.tmdb.org/t/p/w500/5VTN0pR8gcqV3EPUHHfMGnJYN9L.jpg"
     }, {
         key: 12,
         title: "The Dark Knight",
-        content: ""
+        src: "https://image.tmdb.org/t/p/w500/5VTN0pR8gcqV3EPUHHfMGnJYN9L.jpg"
     }, {
         key: 13,
         title: "The Godfather: Part II",
-        content: ""
+        src: "https://image.tmdb.org/t/p/w500/5VTN0pR8gcqV3EPUHHfMGnJYN9L.jpg"
     }, {
         key: 14,
         title: "The Godfather",
-        content: ""
+        src: "https://image.tmdb.org/t/p/w500/5VTN0pR8gcqV3EPUHHfMGnJYN9L.jpg"
     }, {
         key: 15,
         title: "The Shawshank Redemption",
-        content: ""
+        src: "https://image.tmdb.org/t/p/w500/5VTN0pR8gcqV3EPUHHfMGnJYN9L.jpg"
     }
 
 ];
