@@ -33,10 +33,22 @@ const Input = () => {
 
   return (
     <div>
+
+
       <form>
         <div className="input-group mb-3">
           <input className="form-control" id="input-field" type="text" placeholder="Search for movies..." autoFocus="autofocus" value={userInput} onChange={handleUserInput} />
           <div className="input-group-append">
+            <div className="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Order By
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Highest Rated</a>
+                <a class="dropdown-item" href="#">Lowest Rated</a>
+                <a class="dropdown-item" href="#">None</a>
+              </div>
+            </div>
             <button className="btn btn-warning" id="submit-button" type="submit" onClick={getData} onSubmit={getData}>Search</button>
           </div>
         </div>

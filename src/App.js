@@ -7,7 +7,7 @@ import "./App.css";
 const createCards = (cardItem) => {
   return (
     <Card
-      key={cardItem.id}
+      key={cardItem.key}
       title={cardItem.title}
     />
   );
