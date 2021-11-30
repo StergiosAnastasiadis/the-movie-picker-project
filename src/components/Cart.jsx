@@ -2,10 +2,10 @@ import movieInCart from "../movieInCart";
 
 const Cart = () => {
 
-    const createCart = (props) => {
+    const createCart = (movie) => {
         return (
-            <div className="buy-list" key={props.key}>
-                <p >{props.title} <button id="remove-item-button" className="btn">Remove</button></p>
+            <div className="buy-list" key={movie.key}>
+                <p >{movie.title} <button id="remove-item-button" className="btn">Remove</button></p>
             </div>
         )
     }
