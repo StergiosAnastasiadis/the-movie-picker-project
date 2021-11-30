@@ -16,7 +16,7 @@ const Cart = () => {
                 <div className="card-body">
                     <h5 className="card-title">Buy Movies</h5>
                     {movieInCart.map(createCart)}
-                    <a href="#" className="btn btn-outline-warning">Buy Button</a>
+                    <button className="btn btn-outline-warning">Buy Button</button>
                 </div>
             </div>
         </div>
