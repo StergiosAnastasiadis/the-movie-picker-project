@@ -71,14 +71,18 @@ header h1 {
   min-height: 320px;
 }
 
-.add-movie-button {
-  text-align: right;
+#add-movie-button {
+  background-color: #ccc;
+  width: 50px;
+  margin-bottom: 1px;
 }
 
 .buy-list p {
   display: inline-block;
 }
 
-.remove-item {
+#remove-item-button {
+  border: 0;
   color: blue;
+  background-color: #fff;
 }
