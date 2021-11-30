@@ -5,7 +5,7 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import Card from "./Card";
 const Input = () => {
 
   const [userInput, setUserInput] = useState("");
@@ -15,7 +15,7 @@ const Input = () => {
 
   useEffect(() => {
     getData();
-    data.map((item) => (console.log(item.title, item.id)));
+    //data.map((item) => (console.log(item.title, item.id)));
   }, [userInput]);
 
   const handleUserInput = (event) => {
@@ -53,6 +53,9 @@ const Input = () => {
           </div>
         </div>
       </form>
+      <div className="add_your_flex_styling_check_wrap">
+        {data.map((item) => (<Card key={item.key} title={item.title} poster_path={item.poster_path} />))}
+      </div>
     </div>
   );
 };
