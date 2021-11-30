@@ -22,7 +22,6 @@ const Input = () => {
   }
 
   const getData = () => {
-    if (userInput === "") { return }
 
     axios.get(url).then((response) => {
       setData(response.data.results);
