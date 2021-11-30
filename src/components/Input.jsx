@@ -50,9 +50,9 @@ const Input = () => {
                 Order By
               </button>
               <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a className="dropdown-item" href="#">Highest Rated</a>
-                <a className="dropdown-item" href="#">Lowest Rated</a>
-                <a className="dropdown-item" href="#">None</a>
+                <button className="btn btn-light">Highest Rated</button>
+                <button className="btn btn-light">Lowest Rated</button>
+                <button className="btn btn-light">None</button>
               </div>
             </div>
             <button className="btn btn-warning" id="submit-button" type="submit" onClick={getData} onSubmit={getData}>Search</button>
