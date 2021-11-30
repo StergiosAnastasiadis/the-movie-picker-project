@@ -1,11 +1,11 @@
-import cartMovies from "../cartMovies";
+import movieInCart from "../movieInCart";
 
 const Cart = () => {
 
     const createCart = (props) => {
         return (
             <div className="buy-list" key={props.key}>
-                <p >{props.title} <a href="" className="remove-item">Remove</a></p>
+                <p >{props.title} <button id="remove-item-button" className="btn">Remove</button></p>
             </div>
         )
     }
@@ -15,7 +15,7 @@ const Cart = () => {
             <div className="card">
                 <div className="card-body">
                     <h5 className="card-title">Buy Movies</h5>
-                    {cartMovies.map(createCart)}
+                    {movieInCart.map(createCart)}
                     <a href="#" className="btn btn-outline-warning">Buy Button</a>
                 </div>
             </div>

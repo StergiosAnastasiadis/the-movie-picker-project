@@ -6,7 +6,7 @@ const Card = (props) => {
         <div>
             {/* check the movie card height | DONE */}
             <div className="card" id="movie-cards">
-                <a className="add-movie-button" href="#">Add</a>
+                <button id="add-movie-button" className="btn btn-secondary btn-sm" >Add</button>
                 {/* <img alt="movie-poster"></img> | DONE*/}
                 {/* Hint - img tag is self-closing Tag | DONE*/}
                 <img src={props.imgSrc} alt="movie-poster" />
