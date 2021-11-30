@@ -2,7 +2,6 @@ import React from "react";
 import Header from "./components/Header";
 import Input from "./components/Input";
 import Cart from "./components/Cart";
-import Card from "./components/Card";
 import "./App.css";
 
 function App() {
