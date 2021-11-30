@@ -17,16 +17,12 @@ const Input = () => {
     getData();
   }
 
-  const logItems = (cardItem) => {
-    console.log(cardItem.title, cardItem.id);
-  }
-
   const getData = () => {
 
     axios.get(url).then((response) => {
       const data = response.data.results;
 
-      data.map(logItems);
+      data.map((item) => (console.log(item.title, item.id)));
     })
       .catch((error) => {
         console.log(error);
