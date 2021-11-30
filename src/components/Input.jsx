@@ -27,21 +27,15 @@ const Input = () => {
       const data = response.data.results;
 
       data.map(logItems);
-
-      // setUserInput("");
     })
       .catch((error) => {
         console.log(error);
       });
-
-    // event.preventDefault();
   }
 
   return (
     <div>
-
-
-      <form>
+      <form onSubmit={getData}>
         <div className="input-group mb-3">
           <input className="form-control" id="input-field" type="text" placeholder="Search for movies..." autoFocus="autofocus" value={userInput} onChange={handleUserInput} />
           <div className="input-group-append">
@@ -55,7 +49,7 @@ const Input = () => {
                 <button className="btn btn-light">None</button>
               </div>
             </div>
-            <button className="btn btn-warning" id="submit-button" type="submit" onClick={getData} onSubmit={getData}>Search</button>
+            <button className="btn btn-warning" id="submit-button" type="submit">Search</button>
           </div>
         </div>
       </form>
