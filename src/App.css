@@ -32,49 +32,9 @@ header h1 {
   border-radius: 7px;
   box-shadow: 0 2px 5px #ccc;
   padding: 10px;
-  width: 240px;
+  width: 270px;
   margin: 16px;
   float: left;
-}
-
-.movie-cards {
-  max-width: 75%;
-}
-
-.movie-cart {
-  position: fixed;
-  top: 145px;
-  right: 15px;
-}
-
-.movie-cart .card-body {
-  color: black;
-  min-height: 220px;
-}
-
-.movie-inside-cart {
-  padding: 3px 0;
-}
-
-.remove-cart-item {
-  float: right;
-}
-
-#movie-cards {
-  height: 300px;
-}
-
-#movie-cards img {
-  height: 200px;
-}
-
-#movie-cards h1 {
-  position: absolute;
-  bottom: 10px;
-}
-
-.add-movie-button {
-  text-align: right;
 }
 
 .card h1 {
@@ -85,4 +45,40 @@ header h1 {
   color: rgb(7, 7, 7);
   text-align: center;
   bottom: 0;
+}
+
+#movie-cards {
+  height: 380px;
+}
+
+.add_your_flex_styling_check_wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 320px;
+}
+
+.add_your_flex_styling_check_wrap img {
+  height: 300px;
+}
+
+.movie-cart {
+  text-align: center;
+  color: black;
+  position: fixed;
+  flex-direction: column;
+  top: 145px;
+  right: 15px;
+  min-height: 320px;
+}
+
+.add-movie-button {
+  text-align: right;
+}
+
+.buy-list p {
+  display: inline-block;
+}
+
+.remove-item {
+  color: blue;
 }
