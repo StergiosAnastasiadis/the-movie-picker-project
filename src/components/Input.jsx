@@ -15,7 +15,6 @@ const Input = () => {
 
   useEffect(() => {
     getData();
-    //data.map((item) => (console.log(item.title, item.id)));
   }, [userInput]);
 
   const handleUserInput = (event) => {
