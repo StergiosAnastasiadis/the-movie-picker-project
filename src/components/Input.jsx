@@ -3,26 +3,30 @@
 // you can add the form submition only in <form></form> tag
 // check if you can search movie while user typing in search bar | DONE console.log items while user is typing
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Input = () => {
 
   const [userInput, setUserInput] = useState("");
+  const [data, setData] = useState([]);
 
   const url = `https://api.themoviedb.org/3/search/movie?api_key=386f116d61a5532dc4337deb9a45133c&language=en-US&query=${userInput}&page=1&include_adult=false`;
 
+  useEffect(() => {
+    getData();
+    data.map((item) => (console.log(item.title, item.id)));
+  }, [userInput]);
+
   const handleUserInput = (event) => {
     setUserInput(event.target.value);
-    getData();
   }
 
   const getData = () => {
+    if (userInput === "") { return }
 
     axios.get(url).then((response) => {
-      const data = response.data.results;
-
-      data.map((item) => (console.log(item.title, item.id)));
+      setData(response.data.results);
     })
       .catch((error) => {
         console.log(error);
