@@ -6,6 +6,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "./Card";
+
 const Input = () => {
 
   const [userInput, setUserInput] = useState("");
@@ -14,6 +15,7 @@ const Input = () => {
   const url = `https://api.themoviedb.org/3/search/movie?api_key=386f116d61a5532dc4337deb9a45133c&language=en-US&query=${userInput}&page=1&include_adult=false`;
 
   useEffect(() => {
+    if (userInput === "") { return }
     getData();
   }, [userInput]);
 
@@ -52,7 +54,7 @@ const Input = () => {
         </div>
       </form>
       <div className="add_your_flex_styling_check_wrap">
-        {data.map((item) => (<Card key={item.key} title={item.title} poster_path={item.poster_path} />))}
+        {data.map((item) => (<Card key={item.id} id={item.id} title={item.title} poster_path={item.poster_path} />))}
       </div>
     </div>
   );

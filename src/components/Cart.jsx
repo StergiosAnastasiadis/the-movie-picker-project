@@ -1,4 +1,4 @@
-import movieInCart from "../movieInCart";
+import moviesInCart from "../moviesInCart";
 
 const Cart = () => {
 
@@ -6,8 +6,13 @@ const Cart = () => {
         return (
             <div className="buy-list" key={movie.key}>
                 <p >{movie.title} <button id="remove-item-button" className="btn">Remove</button></p>
+                {console.log(movie.id)}
             </div>
         )
+    }
+
+    const deleteMovie = (movie) => {
+        console.log(movie.id);
     }
 
     return (
@@ -15,8 +20,8 @@ const Cart = () => {
             <div className="card">
                 <div className="card-body">
                     <h5 className="card-title">Buy Movies</h5>
-                    {movieInCart.map(createCart)}
-                    <button className="btn btn-outline-warning">Buy Button</button>
+                    {moviesInCart.map(createCart)}
+                    <button className="btn btn-outline-warning" onClick={deleteMovie}>Buy Button</button>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-const movieInCart = [
+const moviesInCart = [
     {
         key: 1,
         title: "Schindler's List",
@@ -17,4 +17,4 @@ const movieInCart = [
 
 ];
 
-export default movieInCart;
+export default moviesInCart;
