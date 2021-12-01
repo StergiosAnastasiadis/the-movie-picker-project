@@ -19,8 +19,7 @@ function App() {
     userSearchInput && getData();
   }, [userSearchInput]);
 
-  const getData = (e) => {
-    e && e.preventDefault()
+  const getData = () => {
 
     axios.get(url).then((response) => {
       setData(response.data.results);
