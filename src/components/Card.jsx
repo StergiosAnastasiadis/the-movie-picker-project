@@ -6,6 +6,7 @@ const Card = (movie) => {
     const imgUrl = "https://image.tmdb.org/t/p/original/";
 
     const addMovieButton = () => {
+        // Add Movie to moviesInCart Array
         console.log(movie.id);
         console.log(movie.title);
         moviesInCart.push({ id: movie.id, title: movie.title });
