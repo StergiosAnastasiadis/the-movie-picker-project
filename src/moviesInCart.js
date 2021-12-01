@@ -1,18 +1,15 @@
 const moviesInCart = [
     {
-        key: 1,
-        title: "Schindler's List",
-        content: ""
-    }, {
-        key: 4,
-        title: "The Good, The Bad And The Ugly",
-    }, {
-        key: 7,
-        title: "Forrest Gump",
+        id: 120,
+        title: 'The Lord of the Rings: The Fellowship of the Ring'
     },
     {
-        key: 10,
-        title: "The Lord Of The Rings: The Two Towers",
+        id: 121,
+        title: 'The Lord of the Rings: The Two Towers'
+    },
+    {
+        id: 140607,
+        title: "Star Wars: The Force Awakens"
     }
 
 ];
