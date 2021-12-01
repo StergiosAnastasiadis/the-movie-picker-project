@@ -3,41 +3,19 @@
 // you can add the form submition only in <form></form> tag
 // check if you can search movie while user typing in search bar | DONE console.log items while user is typing
 
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import Card from "./Card";
+import React from "react";
 
-const Input = () => {
-
-  const [userInput, setUserInput] = useState("");
-  const [data, setData] = useState([]);
-
-  const url = `https://api.themoviedb.org/3/search/movie?api_key=386f116d61a5532dc4337deb9a45133c&language=en-US&query=${userInput}&page=1&include_adult=false`;
-
-  useEffect(() => {
-    if (userInput === "") { return }
-    getData();
-  }, [userInput]);
+const Input = ({setUserInput, getData}) => {
 
   const handleUserInput = (event) => {
     setUserInput(event.target.value);
-  }
-
-  const getData = () => {
-
-    axios.get(url).then((response) => {
-      setData(response.data.results);
-    })
-      .catch((error) => {
-        console.log(error);
-      });
   }
 
   return (
     <div>
       <form onSubmit={getData}>
         <div className="input-group mb-3">
-          <input className="form-control" id="input-field" type="text" placeholder="Search for movies..." autoFocus="autofocus" value={userInput} onChange={handleUserInput} />
+          <input className="form-control" id="input-field" type="text" placeholder="Search for movies..." autoFocus="autofocus" onChange={handleUserInput} />
           <div className="input-group-append">
             <div className="dropdown">
               <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -53,9 +31,6 @@ const Input = () => {
           </div>
         </div>
       </form>
-      <div className="add_your_flex_styling_check_wrap">
-        {data.map((item) => (<Card key={item.id} id={item.id} title={item.title} poster_path={item.poster_path} />))}
-      </div>
     </div>
   );
 };
