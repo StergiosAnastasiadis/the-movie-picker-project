@@ -1,12 +1,13 @@
+import React from "react";
 import moviesInCart from "../moviesInCart";
 
 const Cart = () => {
+
 
     const createCart = (movie) => {
         return (
             <div className="buy-list" key={movie.key}>
                 <p >{movie.title} <button id="remove-item-button" className="btn">Remove</button></p>
-                {console.log(movie.id)}
             </div>
         )
     }

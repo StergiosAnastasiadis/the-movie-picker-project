@@ -7,11 +7,9 @@ const Card = (movie) => {
 
     const addMovieButton = () => {
         console.log(movie.id);
-        console.log(movie.poster_path);
         console.log(movie.title);
         moviesInCart.push({ id: movie.id, title: movie.title });
         console.log(moviesInCart);
-
     }
 
     return (
