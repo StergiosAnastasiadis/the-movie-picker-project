@@ -1,13 +1,23 @@
 import React from "react";
+import moviesInCart from "../moviesInCart";
 
 const Card = (movie) => {
 
-    var imgUrl = "https://image.tmdb.org/t/p/original/";
+    const imgUrl = "https://image.tmdb.org/t/p/original/";
+
+    const addMovieButton = () => {
+        console.log(movie.id);
+        console.log(movie.poster_path);
+        console.log(movie.title);
+        moviesInCart.push({ id: movie.id, title: movie.title });
+        console.log(moviesInCart);
+
+    }
 
     return (
         <div>
             <div className="card" id="movie-cards">
-                <button id="add-movie-button" className="btn btn-secondary btn-sm" >Add</button>
+                <button id="add-movie-button" className="btn btn-secondary btn-sm" value={movie.id} onClick={addMovieButton}>Add</button>
                 <img src={imgUrl + movie.poster_path} alt="movie-poster" />
                 <h1>{movie.title} </h1>
             </div>
