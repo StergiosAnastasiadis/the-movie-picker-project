@@ -13,7 +13,18 @@ const Cart = () => {
     }
 
     const deleteMovie = (event) => {
-        console.log(event.target.value);
+        //Remove Movie from moviesInCart Array
+        const movieToDelete = event.target.value;
+
+        for (var i = 0; i < moviesInCart.length; i++) {
+            var obj = moviesInCart[i];
+
+            if (movieToDelete.indexOf(obj.id) !== -1) {
+                moviesInCart.splice(i, 1);
+                i--;
+            }
+        }
+        console.log(moviesInCart);
     }
 
     return (
