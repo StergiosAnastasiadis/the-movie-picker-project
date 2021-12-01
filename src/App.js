@@ -45,12 +45,3 @@ function App() {
 }
 
 export default App;
-
-
-/**
- { Hint - use array method with jsx element and you can use flex-wrap for lay out | DONE Flex-wrap }
- <div className="add_your_flex_styling_check_wrap">
- {cards.map((item) => (<Card key={item.key} title={item.title} imgSrc={item.src} />))}
-</div>
-
- */
