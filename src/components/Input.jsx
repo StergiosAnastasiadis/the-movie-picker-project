@@ -1,6 +1,6 @@
 import React from "react";
 
-const Input = ({ setUserInput, getData }) => {
+const Input = ({ setUserInput }) => {
 
   const handleUserInput = (event) => {
     setUserInput(event.target.value);
