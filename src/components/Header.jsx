@@ -1,11 +1,11 @@
 import React from "react";
-import movieInCart from "../movieInCart";
+import moviesInCart from "../moviesInCart";
 
 const Header = () => {
 
     return (
         <header>
-            <h1>You have selected {movieInCart.length} Movies</h1>
+            <h1>You have selected {moviesInCart.length} Movies</h1>
         </header>
     )
 }
