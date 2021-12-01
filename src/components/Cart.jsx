@@ -3,7 +3,6 @@ import moviesInCart from "../moviesInCart";
 
 const Cart = () => {
 
-
     const createCart = (movie) => {
         return (
             <div className="buy-list" key={movie.id}>
