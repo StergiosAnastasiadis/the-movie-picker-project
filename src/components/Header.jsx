@@ -1,11 +1,11 @@
 import React from "react";
-import moviesInCart from "../moviesInCart";
 
-const Header = () => {
+
+const Header = ({ moviesInsideCart }) => {
 
     return (
         <header>
-            <h1>You have selected {moviesInCart.length} Movies</h1>
+            <h1>You have selected {moviesInsideCart.length} Movies</h1>
         </header>
     )
 }
