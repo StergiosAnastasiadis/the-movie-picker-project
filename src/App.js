@@ -35,7 +35,7 @@ function App() {
   return (
     <div className="App">
 
-      <Header />
+      <Header moviesInsideCart={moviesInsideCart} />
       <Input setUserSearchInput={setUserSearchInput} />
 
       <div className="add_your_flex_styling_check_wrap">
@@ -46,7 +46,7 @@ function App() {
         <div className="card">
           <div className="card-body">
             <h5 className="card-title">Buy Movies</h5>
-            {moviesInsideCart.map((item) => (<Cart key={item.id} id={item.id} title={item.title} setMoviesInsideCart={setMoviesInsideCart} />))}
+            {moviesInsideCart && moviesInsideCart.map((item) => (<Cart key={item.id} id={item.id} title={item.title} setMoviesInsideCart={setMoviesInsideCart} />))}
             <button className="btn btn-outline-warning">Buy Button</button>
           </div>
         </div>
