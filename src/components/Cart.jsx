@@ -3,7 +3,6 @@ import React, { useState } from "react";
 const Cart = ({ id, title, setMoviesInsideCart }) => {
 
     const deleteMovie = () => {
-
         setMoviesInsideCart((moviesInsideCart) => {
             const newArray = [...moviesInsideCart].filter(movie => movie.id != id);
             return newArray
