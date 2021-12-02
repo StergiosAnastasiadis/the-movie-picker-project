@@ -77,12 +77,20 @@ header h1 {
   margin-bottom: 1px;
 }
 
+.buy-list {
+  display: flex;
+}
+
 .buy-list p {
-  display: inline-block;
+  flex-direction: row;
+  flex-direction: column;
 }
 
 #remove-item-button {
+  flex-direction: column;
+  flex-direction: row;
   border: 0;
-  color: blue;
+  padding: 0 12px;
+  color: #ff5555;
   background-color: #fff;
 }
