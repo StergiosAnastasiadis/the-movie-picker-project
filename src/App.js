@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios"
 import Header from "./components/Header";
 import Input from "./components/Input";
 import Cart from "./components/Cart";
 import Card from "./components/Card";
+import defaultMovieCards from "./defaultMovieCards";
 import "./App.css";
-import axios from "axios"
+
 
 function App() {
 
   const [userSearchInput, setUserSearchInput] = useState("");
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(defaultMovieCards);
   const [moviesInsideCart, setMoviesInsideCart] = useState([]);
 
   const url = `https://api.themoviedb.org/3/search/movie?api_key=386f116d61a5532dc4337deb9a45133c&language=en-US&query=${userSearchInput}&page=1&include_adult=false`;
