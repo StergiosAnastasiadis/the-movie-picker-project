@@ -64,7 +64,7 @@ header h1 {
 .movie-cart {
   text-align: center;
   color: black;
-  position: fixed;
+  position: absolute;
   flex-direction: column;
   top: 145px;
   right: 15px;
