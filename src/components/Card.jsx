@@ -7,7 +7,6 @@ const Card = ({ id, title, poster_path, setMoviesInsideCart }) => {
     const addMovieButton = () => {
 
         const obj = { id: id, title: title, poster_path: poster_path };
-        console.log(obj);
 
         setMoviesInsideCart((moviesInsideCart) => [...moviesInsideCart, obj]);
     }
