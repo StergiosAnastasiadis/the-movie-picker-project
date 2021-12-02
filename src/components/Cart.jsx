@@ -1,7 +1,7 @@
 import React from "react";
 import moviesInCart from "../moviesInCart";
 
-const Cart = () => {
+const Cart = ({ setMoviesInsideCart }) => {
 
     const createCart = (movie) => {
         return (
