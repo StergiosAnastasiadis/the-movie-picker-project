@@ -5,11 +5,7 @@ const Cart = ({ id, title, setMoviesInsideCart }) => {
     const deleteMovie = () => {
 
         setMoviesInsideCart((moviesInsideCart) => {
-            const newArray = [...moviesInsideCart].filter((movie) => {
-                if (movie.id != id) {
-                    return true;
-                }
-            })
+            const newArray = [...moviesInsideCart].filter(movie => movie.id != id);
             return newArray
         })
     }
