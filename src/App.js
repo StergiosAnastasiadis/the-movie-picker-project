@@ -6,10 +6,8 @@ import Card from "./components/Card";
 import "./App.css";
 import axios from "axios"
 
-// pame na doume pws mporoume na kanoume to app parent
-
 function App() {
-  // edw tha mpoun ta state tou component
+
   const [userSearchInput, setUserSearchInput] = useState("");
   const [data, setData] = useState([]);
   const [moviesInsideCart, setMoviesInsideCart] = useState([]);
