@@ -21,7 +21,7 @@ function App() {
   }, [userSearchInput]);
 
   useEffect(() => {
-    console.log(moviesInsideCart);
+    //console.log(moviesInsideCart);
   }, [moviesInsideCart]);
 
   const getData = () => {
