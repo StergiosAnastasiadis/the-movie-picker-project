@@ -29,13 +29,9 @@ function App() {
         {data.map((item) => (<Card key={item.id} id={item.id} title={item.title} poster_path={item.poster_path} setMoviesInsideCart={setMoviesInsideCart} />))}
       </div>
       <div className="movie-cart">
-        <div className="card">
-          <div className="card-body">
-            <h5 className="card-title">Buy Movies</h5>
-            {moviesInsideCart && moviesInsideCart.map((item) => (<Cart key={item.id} id={item.id} title={item.title} setMoviesInsideCart={setMoviesInsideCart} />))}
-            <button className="btn btn-outline-warning">Buy Button</button>
-          </div>
-        </div>
+        <h5 className="card-title">Buy Movies</h5>
+        {moviesInsideCart && moviesInsideCart.map((item) => (<Cart key={item.id} id={item.id} title={item.title} setMoviesInsideCart={setMoviesInsideCart} />))}
+        <button className="btn btn-outline-warning" id="buy-button">Buy Button</button>
       </div>
 
     </div>
