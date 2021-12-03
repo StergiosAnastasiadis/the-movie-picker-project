@@ -9,7 +9,7 @@ const Input = ({ setUserSearchInput }) => {
   return (
     <div>
       <div className="input-group mb-3">
-        <input className="form-control" id="input-field" type="text" placeholder="Search for movies..." autoFocus="autofocus" onChange={handleUserSearchInput} />
+        <input className="form-control" id="input-field" type="text" placeholder="Search for movies..." autoComplete="off" autoFocus="autofocus" onChange={handleUserSearchInput} />
         <div className="input-group-append">
           <div className="dropdown">
             <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
