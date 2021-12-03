@@ -33,7 +33,6 @@ function App() {
         {moviesInsideCart && moviesInsideCart.map((item) => (<Cart key={item.id} id={item.id} title={item.title} setMoviesInsideCart={setMoviesInsideCart} />))}
         <button className="btn btn-outline-warning" id="buy-button">Buy Button</button>
       </div>
-
     </div>
   );
 }
