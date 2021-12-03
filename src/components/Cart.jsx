@@ -13,7 +13,6 @@ const Cart = ({ id, title, setMoviesInsideCart }) => {
         <div className="buy-list" key={id}>
             <p >{title} </p>
             <button id="remove-item-button" className="btn" onClick={deleteMovie}>Remove</button>
-
         </div>
     )
 }
