@@ -83,6 +83,12 @@ header h1 {
 }
 .buy-list {
   display: flex;
+  flex-direction: row;
+}
+
+.cart-movie-title {
+  width: 70%;
+  text-align: center;
 }
 
 .buy-list p {
@@ -90,15 +96,17 @@ header h1 {
   flex-direction: column;
 }
 
-#buy-button {
-  margin: 15px 0;
+.cart-movie-remove-button {
+  width: 30%;
 }
 
 #remove-item-button {
-  flex-direction: column;
-  flex-direction: row;
   border: 0;
-  padding: 0 12px;
+  padding: 0;
   color: #ff5555;
   background-color: #fff;
+}
+
+#buy-button {
+  margin: 15px 0;
 }
