@@ -11,8 +11,8 @@ const Cart = ({ id, title, setMoviesInsideCart }) => {
 
     return (
         <div className="buy-list" key={id}>
-            <p >{title} </p>
-            <button id="remove-item-button" className="btn" onClick={deleteMovie}>Remove</button>
+            <div className="cart-movie-title"><p >{title} </p></div>
+            <div className="cart-movie-remove-button"><button id="remove-item-button" className="btn" onClick={deleteMovie}>Remove</button></div>
         </div>
     )
 }
