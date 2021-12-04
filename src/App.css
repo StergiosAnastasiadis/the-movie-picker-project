@@ -50,13 +50,13 @@ header h1 {
   height: 380px;
 }
 
-.add_your_flex_styling_check_wrap {
+.movie-cards-container {
   display: flex;
   flex-wrap: wrap;
   margin-right: 320px;
 }
 
-.add_your_flex_styling_check_wrap img {
+.movie-cards-container img {
   height: 300px;
 }
 

@@ -25,7 +25,7 @@ function App() {
     <div className="App">
       <Header moviesInsideCart={moviesInsideCart} />
       <Input setUserSearchInput={setUserSearchInput} />
-      <div className="add_your_flex_styling_check_wrap">
+      <div className="movie-cards-container">
         {data.map((item) => (<Card key={item.id} id={item.id} title={item.title} poster_path={item.poster_path} setMoviesInsideCart={setMoviesInsideCart} />))}
       </div>
       <div className="movie-cart">
