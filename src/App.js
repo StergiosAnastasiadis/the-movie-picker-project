@@ -7,7 +7,7 @@ import getData from "./getData";
 import defaultMovieCards from "./defaultMovieCards";
 import "./App.css";
 
-function App() {
+const App = () => {
 
   const [userSearchInput, setUserSearchInput] = useState("");
   const [data, setData] = useState(defaultMovieCards);
