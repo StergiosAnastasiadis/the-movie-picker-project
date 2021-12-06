@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const purchaseMovies = (moviesInsideCart) => {
+const purchaseMovies = async (moviesInsideCart) => {
 
     const url = "https://api.mocklets.com/mock68075/";
     const config = { headers: {"X-Mocklets-PublicKey" : "txmovies", "X-Mocklets-Checksum" : "830c7cd4a70be6540a4898441ca02951"}};
@@ -11,7 +11,7 @@ const purchaseMovies = (moviesInsideCart) => {
         return moviesToBuy;
     })
     
-    return axios.post(url, moviesToBuy, config)
+    return await axios.post(url, moviesToBuy, config)
         .then(res => res)
         .catch(err => console.log(err));
 
