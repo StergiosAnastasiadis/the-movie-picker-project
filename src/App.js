@@ -30,15 +30,16 @@ const App = () => {
     setMoviesInsideCart((moviesInsideCart) => [...moviesInsideCart, card]);
   }
 
-  const purchaseSuccess = () => {
+  const purchaseSuccess = (res) => {
     setMoviesInsideCart([]);
     console.log("successfully purchased");
+    console.log(res.config.data);
   }
 
   const buyMoviesButton = () => {
     moviesInsideCart.length === 0 ? console.log("No Movies To Purchase") 
     : purchaseMovies(moviesInsideCart).then(res => {
-      res.data.success ? purchaseSuccess() : console.log("Error");
+      res.data.success ? purchaseSuccess(res) : console.log("Error");
     })
   }
 
