@@ -8,16 +8,19 @@ import Cart from "./components/Cart";
 import getData from "./getData";
 import purchaseMovies from "./purchaseMovies";
 import "./App.css";
+import Loading from "./components/Loading";
 
 const App = () => {
 
   const [userSearchInput, setUserSearchInput] = useState("");
   const [data, setData] = useState(defaultMovieCards);
+  const [isLoading, setIsLoading] = useState(false);
   const [moviesInsideCart, setMoviesInsideCart] = useState([]);
   const [isBuyButtonClicked, setIsButtonClicked] = useState(false);
 
   useEffect(() => {
-    userSearchInput && getData(userSearchInput).then(res => setData(res));   
+    userSearchInput && getData(userSearchInput, setIsLoading)
+    .then(res => setData(res))
   }, [userSearchInput]);
 
   // ---------- handler functions -------------
@@ -46,8 +49,9 @@ const App = () => {
     <div className="App">
       <Header moviesInsideCart={moviesInsideCart} />
       <Input setUserSearchInput={setUserSearchInput} />
-      {(data.length === 0) 
-      ? <NoMoviesFound />
+      {
+      (data.length === 0) ? <NoMoviesFound />
+      :(isLoading) ? <Loading />
       :<div className="movie-cards-container">
       {data.map((item) => (<Card key={item.id} id={item.id} title={item.title} poster_path={item.poster_path} buttonDisable={moviesInsideCart.some(mic => mic.id === item.id)} addMovieButton={() => addMovieButton({...item})} />))}
       </div>
