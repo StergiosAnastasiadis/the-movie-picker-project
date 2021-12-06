@@ -7,7 +7,6 @@ import Card from "./components/Card";
 import Cart from "./components/Cart";
 import getData from "./getData";
 import purchaseMovies from "./purchaseMovies";
-//import purchaseError from "./purchaseError";
 import "./App.css";
 
 const App = () => {
@@ -15,7 +14,6 @@ const App = () => {
   const [userSearchInput, setUserSearchInput] = useState("");
   const [data, setData] = useState(defaultMovieCards);
   const [moviesInsideCart, setMoviesInsideCart] = useState([]);
-
   const [isBuyButtonClicked, setIsButtonClicked] = useState(false);
 
   useEffect(() => {
@@ -37,8 +35,7 @@ const App = () => {
   }
 
   const buyMoviesButton = async () => {
-    if(moviesInsideCart.length === 0) { return;}
-    if(isBuyButtonClicked) { return; }
+    if(moviesInsideCart.length === 0 || isBuyButtonClicked) { return;}
     setIsButtonClicked(true);
     await purchaseMovies(moviesInsideCart).then(res => {
       res.data.success ? purchaseSuccess(res) : alert("Something went wrong. Please Try Again");
