@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Input from "./components/Input";
 import Cart from "./components/Cart";
 import Card from "./components/Card";
+import NoMoviesFound from "./components/NoMoviesFound";
 import getData from "./getData";
 import defaultMovieCards from "./defaultMovieCards";
 import "./App.css";
@@ -14,7 +15,7 @@ const App = () => {
   const [moviesInsideCart, setMoviesInsideCart] = useState([]);
 
   useEffect(() => {
-    userSearchInput && getData(userSearchInput).then(res => setData(res));
+    userSearchInput && getData(userSearchInput).then(res => setData(res));   
   }, [userSearchInput]);
 
   useEffect(() => {
@@ -25,9 +26,12 @@ const App = () => {
     <div className="App">
       <Header moviesInsideCart={moviesInsideCart} />
       <Input setUserSearchInput={setUserSearchInput} />
-      <div className="movie-cards-container">
-        {data.map((item) => (<Card key={item.id} id={item.id} title={item.title} poster_path={item.poster_path} setMoviesInsideCart={setMoviesInsideCart} />))}
+      {(data.length === 0) 
+      ? <NoMoviesFound />
+      :<div className="movie-cards-container">
+      {data.map((item) => (<Card key={item.id} id={item.id} title={item.title} poster_path={item.poster_path} setMoviesInsideCart={setMoviesInsideCart} />))}
       </div>
+      }
       <div className="movie-cart">
         <h5 className="card-title">Buy Movies</h5>
         {moviesInsideCart && moviesInsideCart.map((item) => (<Cart key={item.id} id={item.id} title={item.title} setMoviesInsideCart={setMoviesInsideCart} />))}
