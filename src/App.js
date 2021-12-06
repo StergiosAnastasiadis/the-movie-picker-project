@@ -7,7 +7,7 @@ import Card from "./components/Card";
 import Cart from "./components/Cart";
 import getData from "./getData";
 import purchaseMovies from "./purchaseMovies";
-import purchaseError from "./purchaseError";
+//import purchaseError from "./purchaseError";
 import "./App.css";
 
 const App = () => {
@@ -32,7 +32,7 @@ const App = () => {
   const purchaseSuccess = (res) => {
     setMoviesInsideCart([]);
     setIsButtonClicked(false);
-    console.log("successfully purchased");
+    alert("Successfully Purchased")
     console.log(res.config.data);
   }
 
@@ -41,7 +41,7 @@ const App = () => {
     if(isBuyButtonClicked) { return; }
     setIsButtonClicked(true);
     await purchaseMovies(moviesInsideCart).then(res => {
-      res.data.success ? purchaseSuccess(res) : purchaseError();
+      res.data.success ? purchaseSuccess(res) : alert("Something went wrong. Please Try Again");
     })
   }
 
