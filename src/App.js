@@ -15,6 +15,8 @@ const App = () => {
   const [data, setData] = useState(defaultMovieCards);
   const [moviesInsideCart, setMoviesInsideCart] = useState([]);
 
+  const [isBuyButtonClicked, setIsButtonClicked] = useState(false);
+
   useEffect(() => {
     userSearchInput && getData(userSearchInput).then(res => setData(res));   
   }, [userSearchInput]);
@@ -56,7 +58,7 @@ const App = () => {
       <div className="movie-cart">
         <h5 className="card-title">Buy Movies</h5>
         {moviesInsideCart && moviesInsideCart.map((item) => (<Cart key={item.id} id={item.id} title={item.title} setMoviesInsideCart={setMoviesInsideCart} />))}
-        <button className="btn btn-outline-warning" id="buy-button" onClick={buyMoviesButton}>Buy Button</button>
+        <button className="btn btn-outline-warning" id="buy-button" onClick={buyMoviesButton}>Purchase</button>
       </div>
     </div>
   );
