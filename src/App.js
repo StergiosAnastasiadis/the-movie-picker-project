@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Input from "./components/Input";
-import Cart from "./components/Cart";
 import Card from "./components/Card";
+import Cart from "./components/Cart";
+import defaultMovieCards from "./defaultMovieCards";
 import NoMoviesFound from "./components/NoMoviesFound";
 import getData from "./getData";
-import defaultMovieCards from "./defaultMovieCards";
+import purchaseMovies from "./purchaseMovies";
 import "./App.css";
 
 const App = () => {
@@ -13,7 +14,6 @@ const App = () => {
   const [userSearchInput, setUserSearchInput] = useState("");
   const [data, setData] = useState(defaultMovieCards);
   const [moviesInsideCart, setMoviesInsideCart] = useState([]);
-
 
   useEffect(() => {
     userSearchInput && getData(userSearchInput).then(res => setData(res));   
@@ -30,6 +30,16 @@ const App = () => {
     setMoviesInsideCart((moviesInsideCart) => [...moviesInsideCart, card]);
   }
 
+  const purchaseSuccess = () => {
+    setMoviesInsideCart([]);
+    console.log("successfully purchased");
+  }
+
+  const buyMoviesButton = () => {
+    purchaseMovies(moviesInsideCart).then(res => {
+      res.data.success ? purchaseSuccess() : console.log("Error");
+    })
+  }
 
   return (
     <div className="App">
@@ -44,7 +54,7 @@ const App = () => {
       <div className="movie-cart">
         <h5 className="card-title">Buy Movies</h5>
         {moviesInsideCart && moviesInsideCart.map((item) => (<Cart key={item.id} id={item.id} title={item.title} setMoviesInsideCart={setMoviesInsideCart} />))}
-        <button className="btn btn-outline-warning" id="buy-button">Buy Button</button>
+        <button className="btn btn-outline-warning" id="buy-button" onClick={buyMoviesButton}>Buy Button</button>
       </div>
     </div>
   );
