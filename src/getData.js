@@ -8,7 +8,7 @@ const getData = async (userSearchInput, setIsLoading) => {
     return await axios
         .get(url)
         .then((res) => {
-            setIsLoading(false)
+            setTimeout(() => {  setIsLoading(false) }, 500);
             return res.data.results 
         })
         .catch(err => console.log(err));
