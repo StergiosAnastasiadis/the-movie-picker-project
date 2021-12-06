@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Input from "./components/Input";
+import NoMoviesFound from "./components/NoMoviesFound";
+import defaultMovieCards from "./defaultMovieCards";
 import Card from "./components/Card";
 import Cart from "./components/Cart";
-import defaultMovieCards from "./defaultMovieCards";
-import NoMoviesFound from "./components/NoMoviesFound";
 import getData from "./getData";
 import purchaseMovies from "./purchaseMovies";
+import purchaseError from "./purchaseError";
 import "./App.css";
 
 const App = () => {
@@ -21,10 +22,6 @@ const App = () => {
     userSearchInput && getData(userSearchInput).then(res => setData(res));   
   }, [userSearchInput]);
 
-  useEffect(() => {
-    //console.log(moviesInsideCart);
-  }, [moviesInsideCart]);
-
   // ---------- handler functions -------------
   // add movieButton to parent component to check movieInside data with fetched data.
   // check also line 41 a new buttonDisable prop
@@ -34,14 +31,17 @@ const App = () => {
 
   const purchaseSuccess = (res) => {
     setMoviesInsideCart([]);
+    setIsButtonClicked(false);
     console.log("successfully purchased");
     console.log(res.config.data);
   }
 
-  const buyMoviesButton = () => {
-    moviesInsideCart.length === 0 ? console.log("No Movies To Purchase") 
-    : purchaseMovies(moviesInsideCart).then(res => {
-      res.data.success ? purchaseSuccess(res) : console.log("Error");
+  const buyMoviesButton = async () => {
+    if(moviesInsideCart.length === 0) { return;}
+    if(isBuyButtonClicked) { return; }
+    setIsButtonClicked(true);
+    await purchaseMovies(moviesInsideCart).then(res => {
+      res.data.success ? purchaseSuccess(res) : purchaseError();
     })
   }
 
