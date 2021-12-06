@@ -36,7 +36,8 @@ const App = () => {
   }
 
   const buyMoviesButton = () => {
-    purchaseMovies(moviesInsideCart).then(res => {
+    moviesInsideCart.length === 0 ? console.log("No Movies To Purchase") 
+    : purchaseMovies(moviesInsideCart).then(res => {
       res.data.success ? purchaseSuccess() : console.log("Error");
     })
   }
