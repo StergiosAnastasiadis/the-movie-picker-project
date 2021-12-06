@@ -14,6 +14,7 @@ const App = () => {
   const [data, setData] = useState(defaultMovieCards);
   const [moviesInsideCart, setMoviesInsideCart] = useState([]);
 
+
   useEffect(() => {
     userSearchInput && getData(userSearchInput).then(res => setData(res));   
   }, [userSearchInput]);
@@ -22,6 +23,14 @@ const App = () => {
     //console.log(moviesInsideCart);
   }, [moviesInsideCart]);
 
+  // ---------- handler functions -------------
+  // add movieButton to parent component to check movieInside data with fetched data.
+  // check also line 41 a new buttonDisable prop
+  const addMovieButton = (card) => {  
+    setMoviesInsideCart((moviesInsideCart) => [...moviesInsideCart, card]);
+  }
+
+
   return (
     <div className="App">
       <Header moviesInsideCart={moviesInsideCart} />
@@ -29,7 +38,7 @@ const App = () => {
       {(data.length === 0) 
       ? <NoMoviesFound />
       :<div className="movie-cards-container">
-      {data.map((item) => (<Card key={item.id} id={item.id} title={item.title} poster_path={item.poster_path} setMoviesInsideCart={setMoviesInsideCart} />))}
+      {data.map((item) => (<Card key={item.id} id={item.id} title={item.title} poster_path={item.poster_path} buttonDisable={moviesInsideCart.some(mic => mic.id === item.id)} addMovieButton={() => addMovieButton({...item})} />))}
       </div>
       }
       <div className="movie-cart">
