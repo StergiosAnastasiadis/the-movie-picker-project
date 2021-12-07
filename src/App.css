@@ -109,3 +109,24 @@ header h1 {
 #buy-button {
   margin: 15px 0;
 }
+
+
+
+@media only screen and (max-width: 600px) {
+
+  .testFlexBox{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .movie-cart {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  .movie-cards-container {
+    margin-top: 1px;
+    order: 2;
+  }
+}

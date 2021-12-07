@@ -49,6 +49,7 @@ const App = () => {
     <div className="App">
       <Header moviesInsideCart={moviesInsideCart} />
       <Input setUserSearchInput={setUserSearchInput} data={data} setData={setData}/>
+      <div className="testFlexBox">
       {
       (data.length === 0) ? <NoMoviesFound />
       :(isLoading) ? <Loading />
@@ -60,6 +61,7 @@ const App = () => {
         <h5 className="card-title">Buy Movies</h5>
         {moviesInsideCart && moviesInsideCart.map((item) => (<Cart key={item.id} id={item.id} title={item.title} setMoviesInsideCart={setMoviesInsideCart} />))}
         <button className="btn btn-outline-warning" id="buy-button" onClick={buyMoviesButton}>Purchase</button>
+      </div>
       </div>
     </div>
   );
