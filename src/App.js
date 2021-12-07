@@ -53,7 +53,7 @@ const App = () => {
       (data.length === 0) ? <NoMoviesFound />
       :(isLoading) ? <Loading />
       :<div className="movie-cards-container">
-      {data.map((item) => (<Card key={item.id} id={item.id} title={item.title} poster_path={item.poster_path} buttonDisable={moviesInsideCart.some(mic => mic.id === item.id)} addMovieButton={() => addMovieButton({...item})} />))}
+      {data.map((item) => (<Card key={item.id} id={item.id} title={item.title} poster_path={item.poster_path} vote_average={item.vote_average} buttonDisable={moviesInsideCart.some(mic => mic.id === item.id)} addMovieButton={() => addMovieButton({...item})} />))}
       </div>
       }
       <div className="movie-cart">
