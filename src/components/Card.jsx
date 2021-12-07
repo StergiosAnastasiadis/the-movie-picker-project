@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card = ({ id, title, poster_path, vote_average, buttonDisable, addMovieButton }) => {
+const Card = ({ id, title, poster_path, buttonDisable, addMovieButton }) => {
 
     const imgUrl = "https://image.tmdb.org/t/p/original/";
     
