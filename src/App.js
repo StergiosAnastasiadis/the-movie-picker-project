@@ -48,7 +48,7 @@ const App = () => {
   return (
     <div className="App">
       <Header moviesInsideCart={moviesInsideCart} />
-      <Input setUserSearchInput={setUserSearchInput} />
+      <Input setUserSearchInput={setUserSearchInput} data={data} setData={setData}/>
       {
       (data.length === 0) ? <NoMoviesFound />
       :(isLoading) ? <Loading />
