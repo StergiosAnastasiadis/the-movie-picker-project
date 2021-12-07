@@ -1,8 +1,7 @@
 import React from "react";
+import { imgUrl } from "../urlStrings";
 
 const Card = ({ id, title, poster_path, buttonDisable, addMovieButton }) => {
-
-    const imgUrl = "https://image.tmdb.org/t/p/original/";
     
     return (
         <div>
