@@ -126,7 +126,12 @@ header h1 {
     position: relative;
     top:0;
     margin-top: 50px;
-    left: 0;
+    left: 25px;
+  }
+
+  .card{
+    width: 280px;
+    left: 25px;
   }
 
   .movie-cards-container {
