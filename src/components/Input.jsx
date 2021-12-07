@@ -1,9 +1,19 @@
 import React from "react";
 
-const Input = ({ setUserSearchInput }) => {
+const Input = ({ setUserSearchInput, data, setData, vote_average }) => {
 
   const handleUserSearchInput = (event) => {
     setUserSearchInput(event.target.value);
+  }
+
+  const lowestToHighest = () => {
+    let newArray = data.sort((a, b) =>  parseFloat(a.vote_average) - parseFloat(b.vote_average));
+    setData(newArray);
+  }
+
+  const highestToLowest = () => {
+    let newArray = data.sort((a, b) => parseFloat(b.vote_average) - parseFloat(a.vote_average));
+    setData(newArray);
   }
 
   return (
@@ -16,9 +26,9 @@ const Input = ({ setUserSearchInput }) => {
               Order By
             </button>
             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <button className="btn btn-light">Highest Rated</button>
-              <button className="btn btn-light">Lowest Rated</button>
-              <button className="btn btn-light">None</button>
+              <button className="btn btn-light dropdown-item" onClick={highestToLowest}>Highest</button>
+              <button className="btn btn-light dropdown-item" onClick={lowestToHighest}>Lowest</button>
+              <button className="btn btn-light dropdown-item">None</button>
             </div>
           </div>
         </div>
