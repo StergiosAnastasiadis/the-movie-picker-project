@@ -1,6 +1,6 @@
 import React from "react";
 
-const Input = ({ setUserSearchInput, data, setData, vote_average }) => {
+const Input = ({ setUserSearchInput, data, setData }) => {
 
   const handleUserSearchInput = (event) => {
     setUserSearchInput(event.target.value);
@@ -8,12 +8,12 @@ const Input = ({ setUserSearchInput, data, setData, vote_average }) => {
 
   const lowestToHighest = () => {
     let newArray = data.sort((a, b) =>  parseFloat(a.vote_average) - parseFloat(b.vote_average));
-    setData(newArray);
+    setData([...newArray]);
   }
 
   const highestToLowest = () => {
     let newArray = data.sort((a, b) => parseFloat(b.vote_average) - parseFloat(a.vote_average));
-    setData(newArray);
+    setData([...newArray]);
   }
 
   return (
