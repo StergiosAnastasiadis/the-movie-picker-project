@@ -8,6 +8,8 @@ import Card from "./components/Card";
 import Cart from "./components/Cart";
 import getData from "./getData";
 import purchaseMovies from "./purchaseMovies";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
 const App = () => {
@@ -17,6 +19,9 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [moviesInsideCart, setMoviesInsideCart] = useState([]);
   const [isBuyButtonClicked, setIsButtonClicked] = useState(false);
+
+  const notifySuccess = () => toast.success("Successfully Purchased");
+  const notifyError = () => toast.error("Oops something went wrong.\nPlease try again");
 
   useEffect(() => {
     initialFetch()
@@ -35,7 +40,7 @@ const App = () => {
   const purchaseSuccess = (res) => {
     setMoviesInsideCart([]);
     setIsButtonClicked(false);
-    alert("Successfully Purchased")
+    notifySuccess();
     console.log(res.config.data);
   }
 
@@ -43,7 +48,7 @@ const App = () => {
     if(moviesInsideCart.length === 0 || isBuyButtonClicked) { return;}
     setIsButtonClicked(true);
     await purchaseMovies(moviesInsideCart).then(res => {
-      res.data.success ? purchaseSuccess(res) : alert("Something went wrong. Please Try Again");
+      res.data.success ? purchaseSuccess(res) : notifyError();
     })
   }
 
@@ -51,6 +56,7 @@ const App = () => {
     <div className="App">
       <Header moviesInsideCart={moviesInsideCart} />
       <Input setUserSearchInput={setUserSearchInput} data={data} setData={setData}/>
+      <ToastContainer />
       <div className="flex-container">
       {
       (userSearchInput && data.length === 0) ? <NoMoviesFound />
