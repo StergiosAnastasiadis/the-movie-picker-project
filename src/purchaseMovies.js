@@ -8,7 +8,6 @@ const purchaseMovies = async (moviesInsideCart) => {
 
     moviesInsideCart.forEach((movie) => {
         moviesToBuy.data.movies.push(movie.id);
-        return moviesToBuy;
     })
     
     return await axios.post(url, moviesToBuy, config)
