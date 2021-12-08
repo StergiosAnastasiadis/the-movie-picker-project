@@ -46,7 +46,7 @@ const App = () => {
     <div className="App">
       <Header moviesInsideCart={moviesInsideCart} />
       <Input setUserSearchInput={setUserSearchInput} data={data} setData={setData}/>
-      <div className="testFlexBox">
+      <div className="flex-container">
       {
       (data.length === 0) ? <NoMoviesFound />
       :(isLoading) ? <Loading />
