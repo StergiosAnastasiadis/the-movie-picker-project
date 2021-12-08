@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Input from "./components/Input";
+import Loading from "./components/Loading";
 import NoMoviesFound from "./components/NoMoviesFound";
 import defaultMovieCards from "./defaultMovieCards";
 import Card from "./components/Card";
@@ -8,7 +9,6 @@ import Cart from "./components/Cart";
 import getData from "./getData";
 import purchaseMovies from "./purchaseMovies";
 import "./App.css";
-import Loading from "./components/Loading";
 
 const App = () => {
 
@@ -23,9 +23,6 @@ const App = () => {
     .then(res => setData(res))
   }, [userSearchInput]);
 
-  // ---------- handler functions -------------
-  // add movieButton to parent component to check movieInside data with fetched data.
-  // check also line 41 a new buttonDisable prop
   const addMovieButton = (card) => {  
     setMoviesInsideCart((moviesInsideCart) => [...moviesInsideCart, card]);
   }
