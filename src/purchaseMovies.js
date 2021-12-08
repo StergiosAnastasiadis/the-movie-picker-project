@@ -6,7 +6,7 @@ const purchaseMovies = async (moviesInsideCart) => {
     const config = { headers: {"X-Mocklets-PublicKey" : "txmovies", "X-Mocklets-Checksum" : "830c7cd4a70be6540a4898441ca02951"}};
     let moviesToBuy ={data:{movies:[]}};
 
-    moviesInsideCart.map((movie) => {
+    moviesInsideCart.forEach((movie) => {
         moviesToBuy.data.movies.push(movie.id);
         return moviesToBuy;
     })
