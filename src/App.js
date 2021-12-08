@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import Input from "./components/Input";
 import Loading from "./components/Loading";
 import NoMoviesFound from "./components/NoMoviesFound";
-import defaultMovieCards from "./defaultMovieCards";
+import initialFetch from "./initialFetch";
 import Card from "./components/Card";
 import Cart from "./components/Cart";
 import getData from "./getData";
@@ -13,10 +13,15 @@ import "./App.css";
 const App = () => {
 
   const [userSearchInput, setUserSearchInput] = useState("");
-  const [data, setData] = useState(defaultMovieCards);
+  const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [moviesInsideCart, setMoviesInsideCart] = useState([]);
   const [isBuyButtonClicked, setIsButtonClicked] = useState(false);
+
+  useEffect(() => {
+    initialFetch()
+    .then(res => setData(res))
+   }, []);
 
   useEffect(() => {
     userSearchInput && getData(userSearchInput, setIsLoading)
@@ -48,7 +53,7 @@ const App = () => {
       <Input setUserSearchInput={setUserSearchInput} data={data} setData={setData}/>
       <div className="flex-container">
       {
-      (data.length === 0) ? <NoMoviesFound />
+      (userSearchInput && data.length === 0) ? <NoMoviesFound />
       :(isLoading) ? <Loading />
       :<div className="movie-cards-container">
       {data.map((item) => (<Card key={item.id} id={item.id} title={item.title} poster_path={item.poster_path} vote_average={item.vote_average} buttonDisable={moviesInsideCart.some(mic => mic.id === item.id)} addMovieButton={() => addMovieButton({...item})} />))}
