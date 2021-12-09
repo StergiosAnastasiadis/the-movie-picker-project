@@ -3,6 +3,8 @@ import initialFetch from "../api/initialFetch";
 import getData from "../api/getData";
 import purchaseMovies from "../api/purchaseMovies";
 import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "../App.css";
 
 const DataContext = createContext({});
 

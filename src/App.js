@@ -4,8 +4,6 @@ import Input from "./components/Input";
 import NestedComponents from "./components/NestedComponents";
 import { DataProvider } from "./context/DataContext";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import "./App.css";
 
 const App = () => {
 
