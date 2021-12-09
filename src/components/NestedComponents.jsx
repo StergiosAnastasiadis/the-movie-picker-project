@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import DataContext from "../context/DataContext";
-import NoMoviesFound from "./NoMoviesFound";
 import Loading from "./Loading";
 import Card from "./Card";
 import Cart from "./Cart";
@@ -12,7 +11,7 @@ const NestedComponents = () => {
     return (
         <div className="flex-container">
         {
-        (userSearchInput && data.length === 0) ? <NoMoviesFound />
+        (userSearchInput && data.length === 0) ? <h1>No Movies Found</h1>
         :(isLoading) ? <Loading />
         :<div className="movie-cards-container">
         {data.map((item) => (<Card item={item} key={item.id} buttonStatus={moviesInsideCart.some(mic => mic.id === item.id)} addMovieButton={() => addMovieButton({...item})} />))}
