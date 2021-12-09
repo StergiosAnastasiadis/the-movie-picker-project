@@ -1,17 +1,21 @@
 import React from "react";
+import { useContext } from "react";
+import DataContext from "../context/DataContext";
 
-const Cart = ({ id, title, setMoviesInsideCart }) => {
+const Cart = ({ item }) => {
+
+    const { setMoviesInsideCart } = useContext(DataContext);
 
     const deleteMovie = () => {
         setMoviesInsideCart((moviesInsideCart) => {
-            const newArray = moviesInsideCart.filter(movie => !(movie.id === id));
+            const newArray = moviesInsideCart.filter(movie => !(movie.id === item.id));
             return newArray
         })
     }
 
     return (
-        <div className="buy-list" key={id}>
-            <div className="cart-movie-title"><p >{title} </p></div>
+        <div className="buy-list" key={item.id}>
+            <div className="cart-movie-title"><p >{item.title} </p></div>
             <div className="cart-movie-remove-button"><button id="remove-item-button" className="btn" onClick={deleteMovie}>Remove</button></div>
         </div>
     )

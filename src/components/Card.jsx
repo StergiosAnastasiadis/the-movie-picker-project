@@ -1,21 +1,25 @@
 import React from "react";
 import { imgUrl } from "../urlStrings";
+import { useContext } from "react";
+import DataContext from "../context/DataContext";
 
-const Card = ({ id, title, poster_path, buttonStatus, addMovieButton, setMoviesInsideCart }) => {
+const Card = ({ buttonStatus, item, addMovieButton }) => {
 
-    const deleteMovie = () => {
-        setMoviesInsideCart((moviesInsideCart) => {
-            const newArray = moviesInsideCart.filter(movie => !(movie.id === id));
-            return newArray
-        })
-    }
+    const { setMoviesInsideCart } = useContext(DataContext);
+
+     const deleteMovie = () => {
+         setMoviesInsideCart((moviesInsideCart) => {
+             const newArray = moviesInsideCart.filter(movie => !(movie.id === item.id));
+             return newArray
+         })
+     }
     
     return (
         <div>
             <div className="card" id="movie-cards">
-                <button id="add-movie-button" className="btn btn-secondary btn-sm" onClick={buttonStatus ? deleteMovie : addMovieButton} value={id} > {buttonStatus ? "Remove" : "Add"}</button>
-                <img src={poster_path === null ? "" :imgUrl + poster_path} alt="movie-poster" />
-                {<h1>{title} </h1>}
+                <button id="add-movie-button" className="btn btn-secondary btn-sm" onClick={buttonStatus ? deleteMovie : addMovieButton} value={item.id} > {buttonStatus ? "Remove" : "Add"}</button>
+                <img src={item.poster_path === null ? "" :imgUrl + item.poster_path} alt="movie-poster" />
+                {<h1>{item.title} </h1>}
             </div>
         </div>
     )

@@ -1,20 +1,10 @@
 import React from "react";
+import { useContext } from "react";
+import DataContext from "../context/DataContext";
 
-const Input = ({ setUserSearchInput, data, setData }) => {
+const Input = () => {
 
-  const handleUserSearchInput = (event) => {
-    setUserSearchInput(event.target.value);
-  }
-
-  const lowestToHighest = () => {
-    let newArray = data.sort((a, b) =>  parseFloat(a.vote_average) - parseFloat(b.vote_average));
-    setData([...newArray]);
-  }
-
-  const highestToLowest = () => {
-    let newArray = data.sort((a, b) => parseFloat(b.vote_average) - parseFloat(a.vote_average));
-    setData([...newArray]);
-  }
+  const { lowestToHighest, highestToLowest, handleUserSearchInput } = useContext(DataContext);
 
   return (
       <div className="input-group mb-3">

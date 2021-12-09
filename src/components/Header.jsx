@@ -1,7 +1,10 @@
 import React from "react";
+import { useContext } from "react";
+import DataContext from "../context/DataContext";
 
+const Header = () => {
 
-const Header = ({ moviesInsideCart }) => {
+    const { moviesInsideCart }  =  useContext(DataContext);
 
     return (
         <header>
