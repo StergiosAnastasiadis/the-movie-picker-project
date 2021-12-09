@@ -1,11 +1,12 @@
 import React from "react";
-import { imgUrl } from "../urlStrings";
 import { useContext } from "react";
 import DataContext from "../context/DataContext";
 
 const Card = ({ buttonStatus, item, addMovieButton }) => {
 
     const { setMoviesInsideCart } = useContext(DataContext);
+
+    const imgUrl = "https://image.tmdb.org/t/p/original/";
 
      const deleteMovie = () => {
          setMoviesInsideCart((moviesInsideCart) => {

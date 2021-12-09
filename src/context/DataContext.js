@@ -1,13 +1,13 @@
 import { createContext, useState, useEffect } from "react";
-import initialFetch from "../initialFetch";
-import getData from "../getData";
-import purchaseMovies from "../purchaseMovies";
+import initialFetch from "../api/initialFetch";
+import getData from "../api/getData";
+import purchaseMovies from "../api/purchaseMovies";
 import { toast } from "react-toastify";
 
 const DataContext = createContext({});
 
 export const DataProvider = ({ children }) => {
-    
+
   const [userSearchInput, setUserSearchInput] = useState("");
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
