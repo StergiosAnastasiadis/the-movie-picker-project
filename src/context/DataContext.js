@@ -17,7 +17,6 @@ export const DataProvider = ({ children }) => {
   const [isBuyButtonClicked, setIsButtonClicked] = useState(false);
 
   const notifySuccess = () => toast.success("Successfully Purchased");
-  const notifyError = () => toast.error("Oops something went wrong.\nPlease try again");
 
   useEffect(() => {
     initialFetch().then((res) => (typeof res !== "undefined") ? setData(res.data.results) : toast.error("Could not get initial data"));
@@ -49,7 +48,7 @@ export const DataProvider = ({ children }) => {
     }
     setIsButtonClicked(true);
     await purchaseMovies(moviesInsideCart).then((res) => {
-      res.data.success ? purchaseSuccess(res) : notifyError();
+      (typeof res !== "undefined") ? purchaseSuccess(res) : toast.error("Failed to Purchase Movies, Please Try Again."); setIsButtonClicked(false);
     });
   };
 
