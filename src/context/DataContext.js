@@ -20,7 +20,7 @@ export const DataProvider = ({ children }) => {
   const notifyError = () => toast.error("Oops something went wrong.\nPlease try again");
 
   useEffect(() => {
-    initialFetch().then((res) => (typeof res !== "undefined") ? setData(res.data.results) : console.log("Error could not Fetch Data"));
+    initialFetch().then((res) => (typeof res !== "undefined") ? setData(res.data.results) : toast.error("Could not get initial data"));
   }, []);
 
   useEffect(() => {
