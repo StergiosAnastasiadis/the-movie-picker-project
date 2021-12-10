@@ -24,7 +24,7 @@ export const DataProvider = ({ children }) => {
 
   useEffect(() => {
     userSearchInput &&
-      getData(userSearchInput, setIsLoading).then((res) => setData(res));
+      getData(userSearchInput, setIsLoading).then((res) =>{ (typeof res !== "undefined" ? setData(res) :  toast.error("Failed to get Data") )});
   }, [userSearchInput]);
 
   const handleUserSearchInput = (event) => {
