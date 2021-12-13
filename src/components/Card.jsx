@@ -8,18 +8,18 @@ const Card = ({ buttonStatus, item, addMovieButton }) => {
 
     const imgUrl = "https://image.tmdb.org/t/p/original/";
 
-     const deleteMovie = () => {
-         setMoviesInsideCart((moviesInsideCart) => {
-             const newArray = moviesInsideCart.filter(movie => !(movie.id === item.id));
-             return newArray
-         })
-     }
-    
+    const deleteMovie = () => {
+        setMoviesInsideCart((moviesInsideCart) => {
+            const newArray = moviesInsideCart.filter(movie => !(movie.id === item.id));
+            return newArray
+        })
+    }
+
     return (
         <div>
-            <div className="card" id="movie-cards">
-                <button id="add-movie-button" className="btn btn-secondary btn-sm" onClick={buttonStatus ? deleteMovie : addMovieButton} value={item.id} > {buttonStatus ? "Remove" : "Add"}</button>
-                <img src={item.poster_path === null ? "" :imgUrl + item.poster_path} alt="movie-poster" />
+            <div className="card movie-cards">
+                <button className="btn btn-secondary btn-sm add-movie-button" onClick={buttonStatus ? deleteMovie : addMovieButton} value={item.id} > {buttonStatus ? "Remove" : "Add"}</button>
+                <img src={item.poster_path === null ? "" : imgUrl + item.poster_path} alt="movie-poster" />
                 {<h1>{item.title} </h1>}
             </div>
         </div>
