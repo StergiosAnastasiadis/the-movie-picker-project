@@ -4,6 +4,8 @@ body {
 }
 
 header {
+  display:flex;
+  justify-content: space-between;
   background-color: #f5ba13;
   margin: auto -16px;
   padding: 5px 32px;
@@ -11,18 +13,23 @@ header {
   margin-bottom: 25px;
 }
 
-header h1 {
+.header-title {
   color: #fff;
 }
 
-#input-field {
+.header-button{
+  position:relative;
+  margin-left: auto;
+  margin-top: 5px;
+}
+
+.input-field {
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
   padding-left: 10px;
 }
 
-.loading-no-movies{
-  
+.loading-no-movies {
   margin: 0;
 }
 
@@ -50,7 +57,7 @@ header h1 {
   margin: 15px 0;
 }
 
-#movie-cards {
+.movie-cards {
   height: 380px;
 }
 
@@ -64,7 +71,7 @@ header h1 {
   height: 300px;
 }
 
-#add-movie-button {
+.add-movie-button {
   background-color: rgb(165, 165, 165);
   width: 70px;
   margin-bottom: 1px;
@@ -103,36 +110,48 @@ header h1 {
   width: 30%;
 }
 
-#remove-item-button {
+.remove-item-button {
   border: 0;
   padding: 0;
   color: #ff5555;
   background-color: #fff;
 }
 
-#buy-button {
+.buy-button {
   margin: 15px 0;
 }
 
-@media only screen and (max-width: 700px) {
+.login-input-container {
+  display: flex;
+  flex-direction: column;
+  margin: 10rem auto auto auto;
+  max-width: 20rem;
+  font-size: x-large;
+}
 
+.login-sign-in-button{
+  margin-top: 30px;
+  margin-bottom: 150px;
+}
+
+@media only screen and (max-width: 700px) {
   header h1 {
     font-size: x-large;
   }
 
-  .flex-container{
+  .flex-container {
     display: flex;
     flex-direction: column;
   }
 
   .movie-cart {
     position: relative;
-    top:0;
+    top: 0;
     margin-top: 50px;
     left: 25px;
   }
 
-  .card{
+  .card {
     width: 280px;
     left: 25px;
   }
