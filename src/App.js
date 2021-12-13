@@ -1,22 +1,19 @@
 import React from "react";
-import Header from "./components/Header";
-import Input from "./components/Input";
-import NestedComponents from "./components/NestedComponents";
-import { DataProvider } from "./context/DataContext";
-import { ToastContainer } from "react-toastify";
+import Home from "./components/Home";
+import Auth from "./components/auth/Auth";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 const App = () => {
-
   return (
     <div className="App">
-        <DataProvider >
-        <Header  />
-        <Input />
-        <ToastContainer />
-        <NestedComponents />
-      </DataProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/auth/login" element={<Auth />} />
+        </Routes>
+      </Router>
     </div>
   );
-}
+};
 
 export default App;
