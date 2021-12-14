@@ -4,10 +4,10 @@ import LoginForm from './LoginForm';
 
 const Auth = () => {
     return(
-        <div>
+        <>
         <LoginHeader />
         <LoginForm />
-        </div>
+        </>
     )
 
 }
