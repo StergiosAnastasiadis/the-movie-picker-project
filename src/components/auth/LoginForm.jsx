@@ -1,10 +1,10 @@
-import React, {useContext} from "react";
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import DataContext from "../../context/DataContext";
 
 const LoginForm = () => {
 
-    const { setUserName, setIsAuth } = useContext(DataContext);
+    const { userName, setUserName } = useContext(DataContext);
 
     let navigate = useNavigate();
 
@@ -18,7 +18,8 @@ const LoginForm = () => {
     }
 
     const handleUserLogin = (event) => {
-        setIsAuth(true);
+        localStorage.setItem("Auth", true);
+        localStorage.setItem("userName", userName)
         navigate("/");
         event.preventDefault();
         console.log("Login Data");

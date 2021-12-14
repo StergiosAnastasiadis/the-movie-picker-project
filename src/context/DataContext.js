@@ -15,10 +15,13 @@ export const DataProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [moviesInsideCart, setMoviesInsideCart] = useState([]);
   const [isBuyButtonClicked, setIsButtonClicked] = useState(false);
-  const [isAuth, setIsAuth] = useState(false);
-  const [userName, setUserName] = useState("");
+  
+  let storedAuthStatus = localStorage.getItem("Auth");
+  const [isAuth, setIsAuth] = useState(storedAuthStatus === "true" ? true : false);
+  let storedUserName = localStorage.getItem("userName")
+  const [userName, setUserName] = useState(storedUserName);
 
-  const notifySuccess = () => toast.success("Successfully Purchased");
+  const notifySuccess = () => toast.success(`Congratulations ${userName} you purchased ${moviesInsideCart.length} Movie(s)`);
 
   useEffect(() => {
     initialFetch().then((res) => (typeof res !== "undefined") ? setData(res.data.results) : toast.error("Could not get initial data"));
@@ -48,6 +51,9 @@ export const DataProvider = ({ children }) => {
     if (moviesInsideCart.length === 0 || isBuyButtonClicked) {
       return;
     }
+
+    if(!isAuth){ return toast.warning("You have to be logged in to purchase movies")}
+
     setIsButtonClicked(true);
     await purchaseMovies(moviesInsideCart).then((res) => {
       (typeof res !== "undefined") ? purchaseSuccess(res) : toast.error("Failed to Purchase Movies, Please Try Again."); setIsButtonClicked(false);
