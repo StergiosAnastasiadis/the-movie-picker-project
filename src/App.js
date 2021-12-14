@@ -1,6 +1,6 @@
 import React from "react";
 import Home from "./components/Home";
-import Auth from "./components/auth/Auth";
+import Auth from "./components/Auth";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 const App = () => {

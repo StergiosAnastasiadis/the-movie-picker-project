@@ -1,8 +1,8 @@
 import React from "react";
 import { DataProvider } from "../context/DataContext";
-import Header from "./Header";
-import Input from "./Input";
-import NestedComponents from "./NestedComponents";
+import Header from "./home/Header";
+import Input from "./home/Input";
+import NestedComponents from "./home/NestedComponents";
 import { ToastContainer } from "react-toastify";
 
 const Home = () => {
