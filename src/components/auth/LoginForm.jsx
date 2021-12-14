@@ -1,11 +1,15 @@
-import React, { useContext } from 'react'
+import React, {useContext} from "react";
+import { useNavigate } from "react-router-dom";
 import DataContext from "../../context/DataContext";
 
 const LoginForm = () => {
 
-    const { } = useContext(DataContext);
+    const { setUserName, setIsAuth } = useContext(DataContext);
+
+    let navigate = useNavigate();
 
     const handleUserLoginName = (event) => {
+        setUserName(event.target.value);
         console.log(event.target.value);
     }
 
@@ -13,7 +17,10 @@ const LoginForm = () => {
         console.log(event.target.value);
     }
 
-    const handleUserLogin = () => {
+    const handleUserLogin = (event) => {
+        setIsAuth(true);
+        navigate("/");
+        event.preventDefault();
         console.log("Login Data");
     }
 

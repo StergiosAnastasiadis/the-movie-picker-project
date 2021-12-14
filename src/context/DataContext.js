@@ -15,6 +15,8 @@ export const DataProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [moviesInsideCart, setMoviesInsideCart] = useState([]);
   const [isBuyButtonClicked, setIsButtonClicked] = useState(false);
+  const [isAuth, setIsAuth] = useState(false);
+  const [userName, setUserName] = useState("");
 
   const notifySuccess = () => toast.success("Successfully Purchased");
 
@@ -83,6 +85,10 @@ export const DataProvider = ({ children }) => {
         isLoading,
         lowestToHighest,
         highestToLowest,
+        isAuth,
+        setIsAuth,
+        userName,
+        setUserName
       }}
     >
       {children}
