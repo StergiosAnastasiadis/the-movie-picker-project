@@ -16,12 +16,15 @@ export const DataProvider = ({ children }) => {
   const [moviesInsideCart, setMoviesInsideCart] = useState([]);
   const [isBuyButtonClicked, setIsButtonClicked] = useState(false);
   
-  let storedAuthStatus = localStorage.getItem("Auth");
-  const [isAuth, setIsAuth] = useState(storedAuthStatus === "true" ? true : false);
-  let storedUserName = localStorage.getItem("userName")
-  const [userName, setUserName] = useState(storedUserName);
+  const [isAuth, setIsAuth] = useState(false);
+  const [userName, setUserName] = useState("");
 
   const notifySuccess = () => toast.success(`Congratulations ${userName} you purchased ${moviesInsideCart.length} Movie(s)`);
+
+  useEffect(() => {
+    setUserName(localStorage.getItem("userName"));
+    setIsAuth(localStorage.getItem("Auth") === "true" ? true : false)
+  }, [])
 
   useEffect(() => {
     initialFetch().then((res) => (typeof res !== "undefined") ? setData(res.data.results) : toast.error("Could not get initial data"));
