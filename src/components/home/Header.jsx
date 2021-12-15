@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 import DataContext from "../../context/DataContext";
 
 const Header = () => {
-  const { moviesInsideCart, setIsAuth, isAuth, userName } = useContext(DataContext);
+  const { moviesInsideCart, setIsAuth, isAuth, userName, setUserName } = useContext(DataContext);
 
   const logoutUser = () => {
+    setUserName("");
     setIsAuth(false);
     localStorage.setItem("Auth", Boolean(false))
+    localStorage.setItem("userName", String(""))
   }
 
   return (
