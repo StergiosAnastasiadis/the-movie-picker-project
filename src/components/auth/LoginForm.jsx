@@ -18,6 +18,7 @@ const LoginForm = () => {
     }
 
     const handleUserLogin = (event) => {
+        if (userName === "") return;
         localStorage.setItem("Auth", true);
         localStorage.setItem("userName", userName)
         navigate("/");
