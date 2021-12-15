@@ -1,24 +1,26 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DataContext from "../../context/DataContext";
+import { toast } from "react-toastify";
 
 const LoginForm = () => {
 
     const { userName, setUserName } = useContext(DataContext);
+    const [userPassword, setUserPassword] = useState("");
 
     let navigate = useNavigate();
 
     const handleUserLoginName = (event) => {
         setUserName(event.target.value);
-        console.log(event.target.value);
     }
 
     const handleUserPassword = (event) => {
-        console.log(event.target.value);
+        setUserPassword(event.target.value);
     }
 
     const handleUserLogin = (event) => {
-        if (userName === "") return;
+        if (userName === "") return (event.preventDefault(), toast.warning("Please enter User Name!"));
+        if (userPassword === "") return (event.preventDefault(), toast.warning("Please enter Password!"));
         localStorage.setItem("Auth", true);
         localStorage.setItem("userName", userName)
         navigate("/");
