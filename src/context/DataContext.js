@@ -15,7 +15,7 @@ export const DataProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [moviesInsideCart, setMoviesInsideCart] = useState([]);
   const [isBuyButtonClicked, setIsButtonClicked] = useState(false);
-  
+
   const [isAuth, setIsAuth] = useState(false);
   const [userName, setUserName] = useState("");
 
@@ -55,26 +55,12 @@ export const DataProvider = ({ children }) => {
       return;
     }
 
-    if(!isAuth){ return toast.warning("You have to be logged in to purchase movies")}
+    if (!isAuth) { return toast.warning("You have to be logged in to purchase movies") }
 
     setIsButtonClicked(true);
     await purchaseMovies(moviesInsideCart).then((res) => {
       (typeof res !== "undefined") ? purchaseSuccess(res) : toast.error("Failed to Purchase Movies, Please Try Again."); setIsButtonClicked(false);
     });
-  };
-
-  const lowestToHighest = () => {
-    let newArray = data.sort(
-      (a, b) => parseFloat(a.vote_average) - parseFloat(b.vote_average)
-    );
-    setData([...newArray]);
-  };
-
-  const highestToLowest = () => {
-    let newArray = data.sort(
-      (a, b) => parseFloat(b.vote_average) - parseFloat(a.vote_average)
-    );
-    setData([...newArray]);
   };
 
   return (
@@ -92,8 +78,6 @@ export const DataProvider = ({ children }) => {
         purchaseSuccess,
         setIsLoading,
         isLoading,
-        lowestToHighest,
-        highestToLowest,
         isAuth,
         setIsAuth,
         userName,

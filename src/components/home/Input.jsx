@@ -4,7 +4,21 @@ import DataContext from "../../context/DataContext";
 
 const Input = () => {
 
-  const { lowestToHighest, highestToLowest, handleUserSearchInput } = useContext(DataContext);
+  const { handleUserSearchInput, setData, data } = useContext(DataContext);
+
+  const lowestToHighest = () => {
+    let newArray = data.sort(
+      (a, b) => parseFloat(a.vote_average) - parseFloat(b.vote_average)
+    );
+    setData([...newArray]);
+  };
+
+  const highestToLowest = () => {
+    let newArray = data.sort(
+      (a, b) => parseFloat(b.vote_average) - parseFloat(a.vote_average)
+    );
+    setData([...newArray]);
+  };
 
   return (
     <div className="input-group mb-3">
