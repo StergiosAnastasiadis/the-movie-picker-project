@@ -1,10 +1,21 @@
-import React from "react";
-import { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import DataContext from "../../context/DataContext";
+import initialFetch from "../../api/initialFetch";
+import getData from "../../api/getData";
+import { toast } from "react-toastify";
 
 const Input = () => {
 
-  const { handleUserSearchInput, setData, data } = useContext(DataContext);
+  const { handleUserSearchInput, userSearchInput, setIsLoading, setData, data } = useContext(DataContext);
+
+  useEffect(() => {
+    initialFetch().then((res) => (typeof res !== "undefined") ? setData(res.data.results) : toast.error("Could not get initial data"));
+  }, []);
+
+  useEffect(() => {
+    userSearchInput &&
+      getData(userSearchInput, setIsLoading).then((res) => { (typeof res !== "undefined" ? setData(res) : toast.error("Failed to get Data")) });
+  }, [userSearchInput]);
 
   const lowestToHighest = () => {
     let newArray = data.sort(

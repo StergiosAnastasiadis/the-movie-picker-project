@@ -1,6 +1,4 @@
 import { createContext, useState, useEffect } from "react";
-import initialFetch from "../api/initialFetch";
-import getData from "../api/getData";
 import purchaseMovies from "../api/purchaseMovies";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -25,15 +23,6 @@ export const DataProvider = ({ children }) => {
     setUserName(localStorage.getItem("userName"));
     setIsAuth(localStorage.getItem("Auth") === "true" ? true : false)
   }, [])
-
-  useEffect(() => {
-    initialFetch().then((res) => (typeof res !== "undefined") ? setData(res.data.results) : toast.error("Could not get initial data"));
-  }, []);
-
-  useEffect(() => {
-    userSearchInput &&
-      getData(userSearchInput, setIsLoading).then((res) => { (typeof res !== "undefined" ? setData(res) : toast.error("Failed to get Data")) });
-  }, [userSearchInput]);
 
   const handleUserSearchInput = (event) => {
     setUserSearchInput(event.target.value);
