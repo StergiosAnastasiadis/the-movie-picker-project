@@ -18,7 +18,7 @@ const NestedComponents = () => {
     if (moviesInsideCart.length === 0 || isBuyButtonClicked) { return; }
     if (!isAuth) { return toast.warning("You have to be logged in to purchase movies") }
     setIsButtonClicked(true);
-    await purchaseMovies(moviesInsideCart)
+    purchaseMovies(moviesInsideCart)
       .then(res => purchaseSuccess(res))
       .catch(err => { toast.error("Failed to Purchase Movies, Please Try Again."); setIsButtonClicked(false); console.log(err) })
   }
