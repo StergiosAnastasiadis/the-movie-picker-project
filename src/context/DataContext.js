@@ -7,7 +7,7 @@ const DataContext = createContext({});
 export const DataProvider = ({ children }) => {
 
   const [userSearchInput, setUserSearchInput] = useState("");
-  const [data, setData] = useState([]);
+  const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [moviesInsideCart, setMoviesInsideCart] = useState([]);
   const [isAuth, setIsAuth] = useState(false);
@@ -29,8 +29,8 @@ export const DataProvider = ({ children }) => {
         setMoviesInsideCart,
         userSearchInput,
         setUserSearchInput,
-        data,
-        setData,
+        movies,
+        setMovies,
         addMovieButton,
         setIsLoading,
         isLoading,

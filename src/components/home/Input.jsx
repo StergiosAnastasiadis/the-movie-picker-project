@@ -1,20 +1,20 @@
 import React, { useEffect, useContext } from "react";
 import DataContext from "../../context/DataContext";
 import initialFetch from "../../api/initialFetch";
-import getData from "../../api/getData";
+import getData from "../../api/getMovies";
 import { toast } from "react-toastify";
 
 const Input = () => {
 
-  const { userSearchInput, setUserSearchInput, setIsLoading, setData, data } = useContext(DataContext);
+  const { userSearchInput, setUserSearchInput, setIsLoading, setMovies, movies } = useContext(DataContext);
 
   useEffect(() => {
-    initialFetch().then((res) => (typeof res !== "undefined") ? setData(res.data.results) : toast.error("Could not get initial data"));
+    initialFetch().then((res) => (typeof res !== "undefined") ? setMovies(res.data.results) : toast.error("Could not get initial data"));
   }, []);
 
   useEffect(() => {
     userSearchInput &&
-      getData(userSearchInput, setIsLoading).then((res) => { (typeof res !== "undefined" ? setData(res) : toast.error("Failed to get Data")) });
+      getData(userSearchInput, setIsLoading).then((res) => { (typeof res !== "undefined" ? setMovies(res) : toast.error("Failed to get Data")) });
   }, [userSearchInput]);
 
   const handleUserSearchInput = (event) => {
@@ -22,17 +22,17 @@ const Input = () => {
   };
 
   const lowestToHighest = () => {
-    let newArray = data.sort(
+    let newArray = movies.sort(
       (a, b) => parseFloat(a.vote_average) - parseFloat(b.vote_average)
     );
-    setData([...newArray]);
+    setMovies([...newArray]);
   };
 
   const highestToLowest = () => {
-    let newArray = data.sort(
+    let newArray = movies.sort(
       (a, b) => parseFloat(b.vote_average) - parseFloat(a.vote_average)
     );
-    setData([...newArray]);
+    setMovies([...newArray]);
   };
 
   return (
