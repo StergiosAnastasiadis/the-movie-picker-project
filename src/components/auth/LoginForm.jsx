@@ -33,7 +33,7 @@ const LoginForm = () => {
             <form>
                 <div className="form-group">
                     <label>User Name</label>
-                    <input type="text" className="form-control" placeholder="Enter User Name" autofocus="autofocus" onChange={handleUserLoginName} />
+                    <input type="text" className="form-control" placeholder="Enter User Name" autoFocus="autofocus" onChange={handleUserLoginName} />
                 </div>
                 <div className="form-group">
                     <label>Password</label>
