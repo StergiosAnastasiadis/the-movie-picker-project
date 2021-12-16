@@ -9,12 +9,10 @@ const Input = () => {
   const { userMovieSearch, setUserMovieSearch, setIsLoading, setMovies, movies } = useContext(DataContext);
 
   useEffect(() => {
-    initialFetch().then((res) => (typeof res !== "undefined") ? setMovies(res.data.results) : toast.error("Could not get initial data"));
-  }, []);
-
-  useEffect(() => {
-    userMovieSearch &&
-      getMovies(userMovieSearch, setIsLoading).then((res) => { (typeof res !== "undefined" ? setMovies(res) : toast.error("Failed to get Data")) });
+    userMovieSearch === "" ?
+      initialFetch().then(res => setMovies(res.data.results)).catch(err => { console.log(err); toast.error("Could not get initial data") })
+      :
+      getMovies(userMovieSearch, setIsLoading).then(res => setMovies(res.data.results)).catch(err => { console.log(err); toast.error("Failed to get Data") })
   }, [userMovieSearch]);
 
   const handleUserMovieSearch = (event) => {
