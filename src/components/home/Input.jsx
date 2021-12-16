@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import DataContext from "../../context/DataContext";
 import initialFetch from "../../api/initialFetch";
 import getMovies from "../../api/getMovies";
@@ -8,7 +8,10 @@ const Input = () => {
 
   const { userMovieSearch, setUserMovieSearch, setIsLoading, setMovies, movies } = useContext(DataContext);
 
+const [sortingButtonStatus, setSortingButtonStatus] = useState("Order By")
+
   useEffect(() => {
+    setSortingButtonStatus("Order By");
     userMovieSearch === "" ?
       initialFetch().then(res => setMovies(res.data.results)).catch(err => { console.log(err); toast.error("Could not get initial data") })
       :
@@ -20,6 +23,7 @@ const Input = () => {
   };
 
   const lowestToHighest = () => {
+    setSortingButtonStatus("Lowest");
     let newArray = movies.sort(
       (a, b) => parseFloat(a.vote_average) - parseFloat(b.vote_average)
     );
@@ -27,6 +31,7 @@ const Input = () => {
   };
 
   const highestToLowest = () => {
+    setSortingButtonStatus("Highest");
     let newArray = movies.sort(
       (a, b) => parseFloat(b.vote_average) - parseFloat(a.vote_average)
     );
@@ -39,7 +44,7 @@ const Input = () => {
       <div className="input-group-append">
         <div className="dropdown">
           <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Order By
+            {sortingButtonStatus}
           </button>
           <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <button className="btn btn-light dropdown-item" onClick={highestToLowest}>Highest</button>
