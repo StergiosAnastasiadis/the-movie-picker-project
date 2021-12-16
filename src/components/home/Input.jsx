@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 
 const Input = () => {
 
-  const { handleUserSearchInput, userSearchInput, setIsLoading, setData, data } = useContext(DataContext);
+  const { userSearchInput, setUserSearchInput, setIsLoading, setData, data } = useContext(DataContext);
 
   useEffect(() => {
     initialFetch().then((res) => (typeof res !== "undefined") ? setData(res.data.results) : toast.error("Could not get initial data"));
@@ -16,6 +16,10 @@ const Input = () => {
     userSearchInput &&
       getData(userSearchInput, setIsLoading).then((res) => { (typeof res !== "undefined" ? setData(res) : toast.error("Failed to get Data")) });
   }, [userSearchInput]);
+
+  const handleUserSearchInput = (event) => {
+    setUserSearchInput(event.target.value);
+  };
 
   const lowestToHighest = () => {
     let newArray = data.sort(

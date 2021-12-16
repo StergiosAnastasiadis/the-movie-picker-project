@@ -1,12 +1,40 @@
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import DataContext from "../../context/DataContext";
 import Loading from "./Loading";
 import Card from "./Card";
 import Cart from "./Cart";
+import purchaseMovies from "../../api/purchaseMovies";
+import { toast } from "react-toastify";
 
 const NestedComponents = () => {
 
-  const { userSearchInput, moviesInsideCart, buyMoviesButton, data, isLoading, addMovieButton } = useContext(DataContext);
+  const { userSearchInput, moviesInsideCart, setMoviesInsideCart, data, isLoading, addMovieButton, isAuth, userName } = useContext(DataContext);
+
+  const [isBuyButtonClicked, setIsButtonClicked] = useState(false);
+
+
+  const notifySuccess = () => toast.success(`Congratulations ${userName} you purchased ${moviesInsideCart.length} Movie(s)`);
+
+  const buyMoviesButton = async () => {
+    if (moviesInsideCart.length === 0 || isBuyButtonClicked) {
+      return;
+    }
+    if (!isAuth) { return toast.warning("You have to be logged in to purchase movies") }
+
+
+    setIsButtonClicked(true);
+    await purchaseMovies(moviesInsideCart).then((res) => {
+      (typeof res !== "undefined") ? purchaseSuccess(res) : toast.error("Failed to Purchase Movies, Please Try Again."); setIsButtonClicked(false);
+    });
+  };
+
+  const purchaseSuccess = (res) => {
+    setMoviesInsideCart([]);
+    setIsButtonClicked(false);
+    notifySuccess();
+    console.log(res.config.data);
+  };
+
 
   return (
     <div className="flex-container">
