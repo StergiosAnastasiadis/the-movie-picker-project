@@ -18,10 +18,6 @@ export const DataProvider = ({ children }) => {
     setIsAuth(localStorage.getItem("Auth") === "true" ? true : false)
   }, [])
 
-  const addMovieButton = (card) => {
-    setMoviesInsideCart((moviesInsideCart) => [...moviesInsideCart, card]);
-  };
-
   return (
     <DataContext.Provider
       value={{
@@ -31,7 +27,6 @@ export const DataProvider = ({ children }) => {
         setUserMovieSearch,
         movies,
         setMovies,
-        addMovieButton,
         setIsLoading,
         isLoading,
         isAuth,

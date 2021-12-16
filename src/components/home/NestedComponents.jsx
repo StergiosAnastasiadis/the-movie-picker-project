@@ -8,24 +8,26 @@ import { toast } from "react-toastify";
 
 const NestedComponents = () => {
 
-  const { userMovieSearch, moviesInsideCart, setMoviesInsideCart, movies, isLoading, addMovieButton, isAuth, userName } = useContext(DataContext);
+  const { userMovieSearch, moviesInsideCart, setMoviesInsideCart, movies, isLoading, isAuth, userName } = useContext(DataContext);
 
   const [isBuyButtonClicked, setIsButtonClicked] = useState(false);
 
-
   const notifySuccess = () => toast.success(`Congratulations ${userName} you purchased ${moviesInsideCart.length} Movie(s)`);
 
-  const buyMoviesButton = async () => {
+  const purchaseMoviesInsideCart = async () => {
     if (moviesInsideCart.length === 0 || isBuyButtonClicked) {
       return;
     }
     if (!isAuth) { return toast.warning("You have to be logged in to purchase movies") }
 
-
     setIsButtonClicked(true);
     await purchaseMovies(moviesInsideCart).then((res) => {
       (typeof res !== "undefined") ? purchaseSuccess(res) : toast.error("Failed to Purchase Movies, Please Try Again."); setIsButtonClicked(false);
     });
+  };
+
+  const addMovieButton = (card) => {
+    setMoviesInsideCart((moviesInsideCart) => [...moviesInsideCart, card]);
   };
 
   const purchaseSuccess = (res) => {
@@ -34,7 +36,6 @@ const NestedComponents = () => {
     notifySuccess();
     console.log(res.config.data);
   };
-
 
   return (
     <div className="flex-container">
@@ -48,7 +49,7 @@ const NestedComponents = () => {
       <div className="movie-cart">
         <h5 className="card-title">Buy Movies</h5>
         {moviesInsideCart && moviesInsideCart.map((item) => (<Cart item={item} key={item.id} />))}
-        <button className="btn btn-outline-warning buy-button" onClick={buyMoviesButton}>Purchase</button>
+        <button className="btn btn-outline-warning buy-button" onClick={purchaseMoviesInsideCart}>Purchase</button>
       </div>
     </div>
   )
