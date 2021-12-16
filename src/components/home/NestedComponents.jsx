@@ -15,26 +15,23 @@ const NestedComponents = () => {
   const notifySuccess = () => toast.success(`Congratulations ${userName} you purchased ${moviesInsideCart.length} Movie(s)`);
 
   const purchaseMoviesInsideCart = async () => {
-    if (moviesInsideCart.length === 0 || isBuyButtonClicked) {
-      return;
-    }
+    if (moviesInsideCart.length === 0 || isBuyButtonClicked) { return; }
     if (!isAuth) { return toast.warning("You have to be logged in to purchase movies") }
-
     setIsButtonClicked(true);
-    await purchaseMovies(moviesInsideCart).then((res) => {
-      (typeof res !== "undefined") ? purchaseSuccess(res) : toast.error("Failed to Purchase Movies, Please Try Again."); setIsButtonClicked(false);
-    });
-  };
-
-  const addMovieButton = (card) => {
-    setMoviesInsideCart((moviesInsideCart) => [...moviesInsideCart, card]);
-  };
+    await purchaseMovies(moviesInsideCart)
+      .then(res => purchaseSuccess(res))
+      .catch(err => { toast.error("Failed to Purchase Movies, Please Try Again."); setIsButtonClicked(false); console.log(err) })
+  }
 
   const purchaseSuccess = (res) => {
     setMoviesInsideCart([]);
     setIsButtonClicked(false);
     notifySuccess();
     console.log(res.config.data);
+  };
+
+  const addMovieButton = (card) => {
+    setMoviesInsideCart((moviesInsideCart) => [...moviesInsideCart, card]);
   };
 
   return (

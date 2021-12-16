@@ -9,11 +9,7 @@ const purchaseMovies = async (moviesInsideCart) => {
     moviesInsideCart.forEach((movie) => {
         moviesToBuy.data.movies.push(movie.id);
     })
-
     return await axios.post(url, moviesToBuy, config)
-        .then(res => res)
-        .catch(err => console.log(err));
-
 }
 
 export default purchaseMovies;
