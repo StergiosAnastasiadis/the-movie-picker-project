@@ -3,6 +3,7 @@ import { DataProvider } from "../context/DataContext";
 import Header from "./home/Header";
 import Input from "./home/Input";
 import NestedComponents from "./home/NestedComponents";
+import Cart from "./home/Cart";
 import { ToastContainer } from "react-toastify";
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
         <Input />
         <ToastContainer />
         <NestedComponents />
+        <Cart />
       </DataProvider>
     </div>
   );
