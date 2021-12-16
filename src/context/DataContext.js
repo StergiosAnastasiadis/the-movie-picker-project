@@ -6,7 +6,7 @@ const DataContext = createContext({});
 
 export const DataProvider = ({ children }) => {
 
-  const [userSearchInput, setUserSearchInput] = useState("");
+  const [userMovieSearch, setUserMovieSearch] = useState("");
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [moviesInsideCart, setMoviesInsideCart] = useState([]);
@@ -27,8 +27,8 @@ export const DataProvider = ({ children }) => {
       value={{
         moviesInsideCart,
         setMoviesInsideCart,
-        userSearchInput,
-        setUserSearchInput,
+        userMovieSearch,
+        setUserMovieSearch,
         movies,
         setMovies,
         addMovieButton,

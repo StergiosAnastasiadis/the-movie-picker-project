@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 
 const NestedComponents = () => {
 
-  const { userSearchInput, moviesInsideCart, setMoviesInsideCart, movies, isLoading, addMovieButton, isAuth, userName } = useContext(DataContext);
+  const { userMovieSearch, moviesInsideCart, setMoviesInsideCart, movies, isLoading, addMovieButton, isAuth, userName } = useContext(DataContext);
 
   const [isBuyButtonClicked, setIsButtonClicked] = useState(false);
 
@@ -39,7 +39,7 @@ const NestedComponents = () => {
   return (
     <div className="flex-container">
       {
-        (userSearchInput && movies.length === 0) ? <h1>No Movies Found</h1>
+        (userMovieSearch && movies.length === 0) ? <h1>No Movies Found</h1>
           : (isLoading) ? <Loading />
             : <div className="movie-cards-container">
               {movies.map((item) => (<Card item={item} key={item.id} buttonStatus={moviesInsideCart.some(mic => mic.id === item.id)} addMovieButton={() => addMovieButton({ ...item })} />))}

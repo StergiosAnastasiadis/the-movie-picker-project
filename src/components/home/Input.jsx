@@ -1,24 +1,24 @@
 import React, { useEffect, useContext } from "react";
 import DataContext from "../../context/DataContext";
 import initialFetch from "../../api/initialFetch";
-import getData from "../../api/getMovies";
+import getMovies from "../../api/getMovies";
 import { toast } from "react-toastify";
 
 const Input = () => {
 
-  const { userSearchInput, setUserSearchInput, setIsLoading, setMovies, movies } = useContext(DataContext);
+  const { userMovieSearch, setUserMovieSearch, setIsLoading, setMovies, movies } = useContext(DataContext);
 
   useEffect(() => {
     initialFetch().then((res) => (typeof res !== "undefined") ? setMovies(res.data.results) : toast.error("Could not get initial data"));
   }, []);
 
   useEffect(() => {
-    userSearchInput &&
-      getData(userSearchInput, setIsLoading).then((res) => { (typeof res !== "undefined" ? setMovies(res) : toast.error("Failed to get Data")) });
-  }, [userSearchInput]);
+    userMovieSearch &&
+      getMovies(userMovieSearch, setIsLoading).then((res) => { (typeof res !== "undefined" ? setMovies(res) : toast.error("Failed to get Data")) });
+  }, [userMovieSearch]);
 
-  const handleUserSearchInput = (event) => {
-    setUserSearchInput(event.target.value);
+  const handleUserMovieSearch = (event) => {
+    setUserMovieSearch(event.target.value);
   };
 
   const lowestToHighest = () => {
@@ -37,7 +37,7 @@ const Input = () => {
 
   return (
     <div className="input-group mb-3">
-      <input className="form-control input-field" type="text" placeholder="Search for movies..." autoComplete="off" autoFocus="autofocus" onChange={handleUserSearchInput} />
+      <input className="form-control input-field" type="text" placeholder="Search for movies..." autoComplete="off" autoFocus="autofocus" onChange={handleUserMovieSearch} />
       <div className="input-group-append">
         <div className="dropdown">
           <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
