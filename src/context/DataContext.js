@@ -16,7 +16,13 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     setUserName(localStorage.getItem("userName"));
     setIsAuth(localStorage.getItem("Auth") === "true" ? true : false)
+    setMoviesInsideCart(JSON.parse(localStorage.getItem("StoredMoviesInsideCart")))
   }, [])
+
+  useEffect(() => {
+    
+    localStorage.setItem("StoredMoviesInsideCart", JSON.stringify(moviesInsideCart))
+  },[moviesInsideCart])
 
   return (
     <DataContext.Provider
