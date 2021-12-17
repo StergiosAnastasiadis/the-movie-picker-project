@@ -23,7 +23,7 @@ const LoginForm = () => {
         if (userName === "") return (toast.warning("Please enter User Name!"));
         if (userPassword === "") return (toast.warning("Please enter Password!"));
         localStorage.setItem("Auth", true);
-        localStorage.setItem("userName", userName)
+        localStorage.setItem("userName", userName);
         navigate("/");
     }
 
