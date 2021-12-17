@@ -3,7 +3,7 @@ import DataContext from "../../context/DataContext";
 import Loading from "./Loading";
 import Card from "./Card";
 
-const NestedComponents = () => {
+const MoviesResultList = () => {
 
   const { userMovieSearch, moviesInsideCart, setMoviesInsideCart, movies, isLoading } = useContext(DataContext);
 
@@ -24,4 +24,4 @@ const NestedComponents = () => {
   )
 }
 
-export default NestedComponents;
+export default MoviesResultList;

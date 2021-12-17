@@ -2,7 +2,7 @@ import React from "react";
 import { DataProvider } from "../context/DataContext";
 import Header from "./home/Header";
 import Input from "./home/Input";
-import NestedComponents from "./home/NestedComponents";
+import MoviesResultList from "./home/MoviesResultList";
 import Cart from "./home/Cart";
 import { ToastContainer } from "react-toastify";
 
@@ -13,7 +13,7 @@ const Home = () => {
         <Header />
         <Input />
         <ToastContainer />
-        <NestedComponents />
+        <MoviesResultList />
         <Cart />
       </DataProvider>
     </div>
