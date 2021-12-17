@@ -19,13 +19,12 @@ const LoginForm = () => {
     }
 
     const handleUserLogin = (event) => {
-        if (userName === "") return (event.preventDefault(), toast.warning("Please enter User Name!"));
-        if (userPassword === "") return (event.preventDefault(), toast.warning("Please enter Password!"));
+        event.preventDefault();
+        if (userName === "") return (toast.warning("Please enter User Name!"));
+        if (userPassword === "") return (toast.warning("Please enter Password!"));
         localStorage.setItem("Auth", true);
         localStorage.setItem("userName", userName)
         navigate("/");
-        event.preventDefault();
-        console.log("Login Data");
     }
 
     return (
