@@ -2,8 +2,8 @@ import React from "react";
 import { DataProvider } from "../context/DataContext";
 import Header from "./home/Header";
 import Input from "./home/Input";
-import MoviesResultList from "./home/MoviesResultList";
 import Cart from "./home/Cart";
+import MoviesResultList from "./home/MoviesResultList";
 import { ToastContainer } from "react-toastify";
 
 const Home = () => {
@@ -13,8 +13,8 @@ const Home = () => {
         <Header />
         <Input />
         <ToastContainer />
-        <MoviesResultList />
         <Cart />
+        <MoviesResultList />
       </DataProvider>
     </div>
   );
