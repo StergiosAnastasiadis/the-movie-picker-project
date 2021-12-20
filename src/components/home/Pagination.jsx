@@ -20,9 +20,15 @@ const Pagination = () => {
                 <nav aria-label="Page navigation">
                     <ul className="pagination">
                         <li className="page-item"><button className="page-link" onClick={previousPageButton}>Previous</button></li>
-                        <li className="page-item"><button className="page-link" >{(currentPage === 1) ? totalPages : currentPage - 1}</button></li>
-                        <li className="page-item"><button className="page-link selected-page-button" disabled >{currentPage}</button></li>
-                        <li className="page-item"><button className="page-link" >{currentPage + 1}</button></li>
+                        {totalPages === 1 || totalPages === 2 ?
+                            <li className="page-item"><button className="page-link selected-page-button" disabled >{currentPage}</button></li>
+                            :
+                            <>
+                                <li className="page-item"><button className="page-link" >{(currentPage === 1) ? totalPages : currentPage - 1}</button></li>
+                                <li className="page-item"><button className="page-link selected-page-button" disabled >{currentPage}</button></li>
+                                <li className="page-item"><button className="page-link" >{currentPage + 1}</button></li>
+                            </>
+                        }
                         <li className="page-item"><button className="page-link" onClick={nextPageButton}>Next</button></li>
                     </ul>
                 </nav>
