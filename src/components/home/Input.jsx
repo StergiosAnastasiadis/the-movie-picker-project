@@ -6,17 +6,32 @@ import { toast } from "react-toastify";
 
 const Input = () => {
 
-  const { userMovieSearch, setUserMovieSearch, setIsLoading, setMovies, movies } = useContext(DataContext);
+  const { userMovieSearch, setUserMovieSearch, setIsLoading, setMovies, movies, setTotalPages, currentPage, setCurrentPage } = useContext(DataContext);
 
-const [sortingButtonStatus, setSortingButtonStatus] = useState("Order By")
+  const [sortingButtonStatus, setSortingButtonStatus] = useState("Order By")
 
   useEffect(() => {
     setSortingButtonStatus("Order By");
+    setCurrentPage(1);
     userMovieSearch === "" ?
-      initialFetch().then(res => setMovies(res.data.results)).catch(err => { console.log(err); toast.error("Could not get initial data") })
+      initialFetch(currentPage).then(res => {setMovies(res.data.results); 
+      (res.data.total_pages <=500) ? setTotalPages(res.data.total_pages): setTotalPages(500)})
+        .catch(err => { console.log(err); toast.error("Could not get initial data") })
       :
-      getMovies(userMovieSearch, setIsLoading).then(res => setMovies(res.data.results)).catch(err => { console.log(err); toast.error("Failed to get Data") })
+      getMovies(userMovieSearch, setIsLoading, currentPage).then(res => { setMovies(res.data.results); 
+        ((res.data.total_pages <= 500) ? setTotalPages(res.data.total_pages) : setTotalPages(500)) })
+        .catch(err => { console.log(err); toast.error("Failed to get Data") })
   }, [userMovieSearch]);
+
+  useEffect(() => {
+    userMovieSearch === "" ?
+      initialFetch(currentPage).then(res => { setMovies(res.data.results); })
+        .catch(err => { console.log(err); toast.error("Could not get initial data") })
+      :
+      getMovies(userMovieSearch, setIsLoading, currentPage).then(res => { setMovies(res.data.results); 
+        (res.data.total_pages <= 500 ? setTotalPages(res.data.total_pages) : setTotalPages(500)) })
+        .catch(err => { console.log(err); toast.error("Failed to get Data") })
+  }, [currentPage])
 
   const handleUserMovieSearch = (event) => {
     setUserMovieSearch(event.target.value);

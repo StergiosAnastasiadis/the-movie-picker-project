@@ -4,7 +4,7 @@ body {
 }
 
 header {
-  display:flex;
+  display: flex;
   justify-content: space-between;
   background-color: #f5ba13;
   margin: auto -16px;
@@ -17,8 +17,8 @@ header {
   color: #fff;
 }
 
-.header-button{
-  position:relative;
+.header-button {
+  position: relative;
   margin-left: auto;
   margin-top: 5px;
 }
@@ -121,6 +121,18 @@ header {
   margin: 15px 0;
 }
 
+.pagination {
+  position: fixed;
+  left: 50%;
+  bottom: 10px;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+}
+
+.selected-page-button{
+  background-color: #ccc;
+}
+
 .login-input-container {
   display: flex;
   flex-direction: column;
@@ -132,7 +144,7 @@ header {
   font-size: x-large;
 }
 
-.login-sign-in-button{
+.login-sign-in-button {
   width: 100%;
   margin-top: 30px;
   margin-bottom: 150px;

@@ -12,6 +12,8 @@ export const DataProvider = ({ children }) => {
   const [moviesInsideCart, setMoviesInsideCart] = useState([]);
   const [isAuth, setIsAuth] = useState(false);
   const [userName, setUserName] = useState("");
+  const [totalPages, setTotalPages] = useState(500);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     setUserName(localStorage.getItem("userName"));
@@ -21,7 +23,7 @@ export const DataProvider = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem("StoredMoviesInsideCart", JSON.stringify(moviesInsideCart));
-  },[moviesInsideCart])
+  }, [moviesInsideCart])
 
   return (
     <DataContext.Provider
@@ -37,7 +39,11 @@ export const DataProvider = ({ children }) => {
         isAuth,
         setIsAuth,
         userName,
-        setUserName
+        setUserName,
+        totalPages,
+        setTotalPages,
+        currentPage,
+        setCurrentPage,
       }}
     >
       {children}
