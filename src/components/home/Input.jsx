@@ -16,7 +16,7 @@ const Input = () => {
     userMovieSearch === "" ?
       initialFetch(currentPage).then(res => {
         setMovies(res.data.results);
-        setTotalPages(res.data.total_pages)
+        setTotalPages(res.data.total_pages <= 500 ? res.data.total_pages : 500);
       }).catch(err => { console.log(err); toast.error("Could not get initial data") })
       :
       getMovies(userMovieSearch, setIsLoading, currentPage).then(res => {
@@ -31,7 +31,7 @@ const Input = () => {
         .catch(err => { console.log(err); toast.error("Could not get initial data") })
       :
       getMovies(userMovieSearch, setIsLoading, currentPage).then(res => {
-        setMovies(res.data.results); setTotalPages(res.data.total_pages)
+        setMovies(res.data.results); setTotalPages(res.data.total_pages <= 500 ? res.data.total_pages : 500);
       }).catch(err => { console.log(err); toast.error("Failed to get Data") })
   }, [currentPage])
 
