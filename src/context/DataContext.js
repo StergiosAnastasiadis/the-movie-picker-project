@@ -12,7 +12,7 @@ export const DataProvider = ({ children }) => {
   const [moviesInsideCart, setMoviesInsideCart] = useState([]);
   const [isAuth, setIsAuth] = useState(false);
   const [userName, setUserName] = useState("");
-  const [totalPages, setTotalPages] = useState(500);
+  const [totalPages, setTotalPages] = useState();
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
