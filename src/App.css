@@ -65,6 +65,7 @@ header {
   display: flex;
   flex-wrap: wrap;
   margin-right: 320px;
+  margin-bottom: 80px;
 }
 
 .movie-cards-container img {
