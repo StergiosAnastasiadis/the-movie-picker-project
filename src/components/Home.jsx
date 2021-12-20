@@ -4,7 +4,7 @@ import Header from "./home/Header";
 import Input from "./home/Input";
 import Cart from "./home/Cart";
 import MoviesResultList from "./home/MoviesResultList";
-import Pagination from "./home/Pagination";
+import NavPages from "./home/NavPages";
 import { ToastContainer } from "react-toastify";
 
 const Home = () => {
@@ -16,7 +16,7 @@ const Home = () => {
         <ToastContainer />
         <Cart />
         <MoviesResultList />
-        <Pagination />
+        <NavPages />
       </DataProvider>
     </div>
   );

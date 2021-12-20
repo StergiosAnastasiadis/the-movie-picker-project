@@ -14,28 +14,26 @@ const Input = () => {
     setSortingButtonStatus("Order By");
     setCurrentPage(1);
     userMovieSearch === "" ?
-      initialFetch(currentPage).then(res => {setMovies(res.data.results); 
-      (res.data.total_pages <=500) ? setTotalPages(res.data.total_pages): setTotalPages(500)})
-        .catch(err => { console.log(err); toast.error("Could not get initial data") })
+      initialFetch(currentPage).then(res => {
+        setMovies(res.data.results);
+        setTotalPages(res.data.total_pages)
+      }).catch(err => { console.log(err); toast.error("Could not get initial data") })
       :
-      getMovies(userMovieSearch, setIsLoading, currentPage).then(res => { setMovies(res.data.results); 
-        ((res.data.total_pages <= 500) ? setTotalPages(res.data.total_pages) : setTotalPages(500)) })
-        .catch(err => { console.log(err); toast.error("Failed to get Data") })
+      getMovies(userMovieSearch, setIsLoading, currentPage).then(res => {
+        setMovies(res.data.results); setTotalPages(res.data.total_pages)
+      }).catch(err => { console.log(err); toast.error("Failed to get Data") })
   }, [userMovieSearch]);
 
   useEffect(() => {
+    setSortingButtonStatus("Order By");
     userMovieSearch === "" ?
       initialFetch(currentPage).then(res => { setMovies(res.data.results); })
         .catch(err => { console.log(err); toast.error("Could not get initial data") })
       :
-      getMovies(userMovieSearch, setIsLoading, currentPage).then(res => { setMovies(res.data.results); 
-        (res.data.total_pages <= 500 ? setTotalPages(res.data.total_pages) : setTotalPages(500)) })
-        .catch(err => { console.log(err); toast.error("Failed to get Data") })
+      getMovies(userMovieSearch, setIsLoading, currentPage).then(res => {
+        setMovies(res.data.results); setTotalPages(res.data.total_pages)
+      }).catch(err => { console.log(err); toast.error("Failed to get Data") })
   }, [currentPage])
-
-  const handleUserMovieSearch = (event) => {
-    setUserMovieSearch(event.target.value);
-  };
 
   const lowestToHighest = () => {
     setSortingButtonStatus("Lowest");
@@ -55,7 +53,7 @@ const Input = () => {
 
   return (
     <div className="input-group mb-3">
-      <input className="form-control input-field" type="text" placeholder="Search for movies..." autoComplete="off" autoFocus="autofocus" onChange={handleUserMovieSearch} />
+      <input className="form-control input-field" type="text" placeholder="Search for movies..." autoComplete="off" autoFocus="autofocus" onChange={(event) => setUserMovieSearch(event.target.value)} />
       <div className="input-group-append">
         <div className="dropdown">
           <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
