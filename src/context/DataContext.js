@@ -7,6 +7,7 @@ const DataContext = createContext({});
 export const DataProvider = ({ children }) => {
 
   const [userMovieSearch, setUserMovieSearch] = useState("");
+  const [sortingButtonStatus, setSortingButtonStatus] = useState("Order By")
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [moviesInsideCart, setMoviesInsideCart] = useState([]);
@@ -44,6 +45,8 @@ export const DataProvider = ({ children }) => {
         setTotalPages,
         currentPage,
         setCurrentPage,
+        sortingButtonStatus,
+        setSortingButtonStatus,
       }}
     >
       {children}

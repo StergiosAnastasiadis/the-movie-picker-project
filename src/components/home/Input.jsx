@@ -6,9 +6,7 @@ import { toast } from "react-toastify";
 
 const Input = () => {
 
-  const { userMovieSearch, setUserMovieSearch, setIsLoading, setMovies, movies, setTotalPages, currentPage, setCurrentPage } = useContext(DataContext);
-
-  const [sortingButtonStatus, setSortingButtonStatus] = useState("Order By")
+  const { userMovieSearch, setUserMovieSearch, setIsLoading, setMovies, movies, setTotalPages, currentPage, setCurrentPage, sortingButtonStatus, setSortingButtonStatus } = useContext(DataContext);
 
   useEffect(() => {
     setSortingButtonStatus("Order By");
@@ -23,17 +21,6 @@ const Input = () => {
         setMovies(res.data.results); setTotalPages(res.data.total_pages)
       }).catch(err => { console.log(err); toast.error("Failed to get Data") })
   }, [userMovieSearch]);
-
-  useEffect(() => {
-    setSortingButtonStatus("Order By");
-    userMovieSearch === "" ?
-      initialFetch(currentPage).then(res => { setMovies(res.data.results); })
-        .catch(err => { console.log(err); toast.error("Could not get initial data") })
-      :
-      getMovies(userMovieSearch, setIsLoading, currentPage).then(res => {
-        setMovies(res.data.results); setTotalPages(res.data.total_pages <= 500 ? res.data.total_pages : 500);
-      }).catch(err => { console.log(err); toast.error("Failed to get Data") })
-  }, [currentPage])
 
   const lowestToHighest = () => {
     setSortingButtonStatus("Lowest");
