@@ -18,7 +18,7 @@ const Cart = () => {
             .catch(err => { toast.error("Failed to Purchase Movies, Please Try Again."); setIsButtonClicked(false); console.log(err) })
     }
 
-    const notifySuccess = () => toast.success(`Congratulations ${userName} you purchased ${moviesInsideCart.length} Movie(s)`);
+    const notifySuccess = () => toast.success(`Congratulations ${userName} you purchased ${moviesInsideCart.length === 1 ? "1 Movie" : moviesInsideCart.length + " Movies"}`);
 
     const purchaseSuccess = (res) => {
         setMoviesInsideCart([]);
