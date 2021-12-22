@@ -1,7 +1,7 @@
 import React from "react"
-import { DataProvider } from "../context/DataContext";
-import LoginHeader from "./auth/LoginHeader";
-import LoginForm from "./auth/LoginForm";
+import { DataProvider } from "../../context/DataContext";
+import LoginHeader from "../auth/LoginHeader";
+import LoginForm from "../auth/LoginForm";
 import { ToastContainer } from "react-toastify";
 
 const Auth = () => {

@@ -1,8 +1,8 @@
 import React from "react";
-import Home from "./components/Home";
-import Auth from "./components/Auth";
-import PrivatePage from "./components/PrivatePage";
-import ErrorPage from "./components/ErrorPage";
+import Home from "./components/pages/Home";
+import Auth from "./components/pages/Auth";
+import PrivatePage from "./components/pages/PrivatePage";
+import ErrorPage from "./components/pages/ErrorPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 const App = () => {

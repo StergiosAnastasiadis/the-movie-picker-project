@@ -1,10 +1,10 @@
 import React from "react";
-import { DataProvider } from "../context/DataContext";
-import Header from "./home/Header";
-import Input from "./home/Input";
-import Cart from "./home/Cart";
-import MoviesResultList from "./home/MoviesResultList";
-import NavPages from "./home/NavPages";
+import { DataProvider } from "../../context/DataContext";
+import Header from "../home/Header";
+import Input from "../home/Input";
+import Cart from "../home/Cart";
+import MoviesResultList from "../home/MoviesResultList";
+import NavPages from "../home/NavPages";
 import { ToastContainer } from "react-toastify";
 
 const Home = () => {
